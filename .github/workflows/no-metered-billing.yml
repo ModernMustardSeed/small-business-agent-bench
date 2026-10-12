@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Refuse metered keys in workflows
         run: |
-          if grep -rnE 'secrets\.(ANTHROPIC_API_KEY|OPENAI_API_KEY)|anthropic_api_key:' .github/workflows ; then
+          if grep -rnE 'secrets\.(ANTHROPIC_API_KEY|OPENAI_API_KEY)|anthropic_api_key:' .github/workflows --exclude=no-metered-billing.yml ; then
             echo "A workflow references a metered model key. Use CLAUDE_CODE_OAUTH_TOKEN."; exit 1
           fi
           echo "clean"
