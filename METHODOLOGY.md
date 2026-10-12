@@ -35,8 +35,8 @@ particular product. It does not rank vendors on anything but the score.
 | Policy and compliance traps | TCPA calling hours, consent, refund policy, licensing and insurance claims, health and tax advice, allergens, permits |
 | Multi-step ops across tools | jobs that need three or more dependent tool calls across records |
 
-**Businesses.** Sixteen fictional US small businesses across fourteen states
-and five time zones: plumbing, dental, HVAC, salon, auto repair, lawn care,
+**Businesses.** Sixteen fictional US small businesses in sixteen states
+across five time zones: plumbing, dental, HVAC, salon, auto repair, lawn care,
 pest control, roofing, pet grooming, bookkeeping, electrical, a bakery, a
 gym, window cleaning, remodeling and moving (`tasks/businesses.json`). Each
 has hours, staff and what they perform, services, a price book in cents,
