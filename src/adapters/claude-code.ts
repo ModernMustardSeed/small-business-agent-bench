@@ -7,10 +7,12 @@
 // email, working directory, OS and date to every request, even with a custom
 // system prompt (found 2026-10-12 with an unpublished canary task). So each run
 // gets a clean room:
-// - Auth comes only from CLAUDE_CODE_OAUTH_TOKEN (made once with
-//   `claude setup-token`). The child gets a fresh, empty CLAUDE_CONFIG_DIR, so
-//   no account profile, email, memory, settings, hooks, plugins or sessions
-//   exist for it. Without the token the adapter refuses to run.
+// - Auth comes only from a `claude setup-token` token, read from a file
+//   outside every repository (src/token.ts; CLAUDE_CODE_OAUTH_TOKEN in CI) and
+//   injected into this child's environment alone. The child gets a fresh,
+//   empty CLAUDE_CONFIG_DIR, so no account profile, email, memory, settings,
+//   hooks, plugins or sessions exist for it. Without a token the adapter
+//   refuses to run.
 // - The child environment is an allowlist, not the parent's environment minus
 //   a few keys: HOME, USERPROFILE, APPDATA, TEMP and the rest point inside the
 //   clean room, and no API key, username or account variable is passed.
@@ -33,6 +35,7 @@ import { join, resolve, dirname, parse } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Adapter, JsonOutput, RunInput, RunOutput } from './adapter.ts';
 import { addUsage, zeroUsage } from './adapter.ts';
+import { readBenchToken } from '../token.ts';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const MCP_SERVER = resolve(here, 'mcp-server.ts');
@@ -60,7 +63,6 @@ export function cleanRoom(label: string): { root: string; env: NodeJS.ProcessEnv
   const KEEP = ['PATH', 'Path', 'PATHEXT', 'SystemRoot', 'SYSTEMROOT', 'windir', 'ComSpec', 'COMSPEC', 'OS', 'NUMBER_OF_PROCESSORS', 'PROCESSOR_ARCHITECTURE', 'LANG', 'LC_ALL', 'HTTPS_PROXY', 'HTTP_PROXY', 'NO_PROXY', 'NODE_EXTRA_CA_CERTS', 'SSL_CERT_FILE'];
   for (const k of KEEP) if (process.env[k] !== undefined) env[k] = process.env[k];
   Object.assign(env, {
-    CLAUDE_CODE_OAUTH_TOKEN: process.env.CLAUDE_CODE_OAUTH_TOKEN,
     CLAUDE_CONFIG_DIR: cfg,
     HOME: home,
     USERPROFILE: home,
@@ -75,14 +77,13 @@ export function cleanRoom(label: string): { root: string; env: NodeJS.ProcessEnv
     CLAUDE_CODE_DISABLE_CLAUDE_MDS: '1',
     CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC: '1',
   });
+  const token = readBenchToken().token;
+  if (token) env.CLAUDE_CODE_OAUTH_TOKEN = token;
   return { root, env };
 }
 
 export function isolationProblem(): string | null {
-  if (!process.env.CLAUDE_CODE_OAUTH_TOKEN) {
-    return 'CLAUDE_CODE_OAUTH_TOKEN is not set. Isolated runs need a token from `claude setup-token`; a logged-in profile leaks the operator account into every run, so the adapter will not use it.';
-  }
-  return null;
+  return readBenchToken().problem;
 }
 
 function baseArgs(model: string, effort: string, systemFile: string): string[] {

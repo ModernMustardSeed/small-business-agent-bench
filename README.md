@@ -72,12 +72,20 @@ pnpm test                         # unit tests, no model calls
 ```
 
 **On a Claude subscription (no per-token billing).** Install
-[Claude Code](https://docs.claude.com/en/docs/claude-code), run
-`claude setup-token` once, and export the token as `CLAUDE_CODE_OAUTH_TOKEN`.
-Each task then runs in a clean room: an empty config directory, an allowlisted
+[Claude Code](https://docs.claude.com/en/docs/claude-code) and create a
+long-lived token once with `claude setup-token`. Save the token in a file
+outside every repository: by default `~/.bench/oauth-token.txt`
+(`%USERPROFILE%\.bench\oauth-token.txt` on Windows), or any path named in
+`BENCH_OAUTH_TOKEN_FILE`. Do not set it as a user-level environment variable:
+a global `CLAUDE_CODE_OAUTH_TOKEN` takes over auth in every interactive Claude
+Code session on the machine. The runner reads the file and injects the token
+only into each task's clean room: an empty config directory, an allowlisted
 environment with no account, API key or username, and a working directory
-outside your user profile. The adapter refuses to use a logged-in profile,
-because that profile attaches your account details to every request.
+outside your user profile. The adapter refuses a token file inside a git work
+tree, refuses to use a logged-in profile (it attaches your account details to
+every request), and the leak check fails any run whose transcript contains the
+token. In CI the token comes from the `CLAUDE_CODE_OAUTH_TOKEN` repository
+secret instead.
 
 ```
 node src/run.ts --adapter claude-code --tasks smoke

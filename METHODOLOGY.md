@@ -179,7 +179,9 @@ The runner (`src/run.ts`) takes an adapter:
   subscription. The task's tools are served to the CLI by a local MCP server,
   so tool use is native. The adapter replaces the CLI's system prompt and
   disables every built-in tool. Each task runs in a clean room: a fresh, empty
-  config directory, authentication only through a `claude setup-token` token,
+  config directory, authentication only through a `claude setup-token` token
+  read from a file outside every repository and injected into that child
+  alone,
   an allowlisted environment with no API key, account or username, and a
   working directory outside the operator's profile. A logged-in CLI profile
   attaches the operator's account email, working directory and real date to

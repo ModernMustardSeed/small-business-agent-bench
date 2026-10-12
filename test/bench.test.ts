@@ -215,8 +215,42 @@ test('leak check: flags operator emails, home paths and runtime identifiers, nev
 
 test('claude-code adapter refuses to run without an isolated token', async () => {
   const { ClaudeCodeAdapter } = await import('../src/adapters/claude-code.ts');
-  const saved = process.env.CLAUDE_CODE_OAUTH_TOKEN;
+  const saved = { env: process.env.CLAUDE_CODE_OAUTH_TOKEN, file: process.env.BENCH_OAUTH_TOKEN_FILE };
   delete process.env.CLAUDE_CODE_OAUTH_TOKEN;
-  assert.match(String(await new ClaudeCodeAdapter('m', 'medium').unavailable()), /CLAUDE_CODE_OAUTH_TOKEN/);
-  if (saved) process.env.CLAUDE_CODE_OAUTH_TOKEN = saved;
+  process.env.BENCH_OAUTH_TOKEN_FILE = join(tmpdir(), 'sbab-no-such-token.txt');
+  assert.match(String(await new ClaudeCodeAdapter('m', 'medium').unavailable()), /setup-token/);
+  if (saved.env) process.env.CLAUDE_CODE_OAUTH_TOKEN = saved.env;
+  if (saved.file) process.env.BENCH_OAUTH_TOKEN_FILE = saved.file;
+  else delete process.env.BENCH_OAUTH_TOKEN_FILE;
+});
+
+test('token file: BOM and whitespace trimmed, file wins over env, refused inside a git work tree, flagged by the leak check', async () => {
+  const { readBenchToken } = await import('../src/token.ts');
+  const { scanText } = await import('../src/leak.ts');
+  const { mkdirSync } = await import('node:fs');
+  const saved = { env: process.env.CLAUDE_CODE_OAUTH_TOKEN, file: process.env.BENCH_OAUTH_TOKEN_FILE };
+  const dir = mkdtempSync(join(tmpdir(), 'sbab-tok-'));
+  try {
+    const f = join(dir, 'oauth-token.txt');
+    writeFileSync(f, '\uFEFF  test-token-value-1234567890 \r\n');
+    process.env.BENCH_OAUTH_TOKEN_FILE = f;
+    process.env.CLAUDE_CODE_OAUTH_TOKEN = 'env-token-value-0987654321';
+    const r = readBenchToken();
+    assert.equal(r.token, 'test-token-value-1234567890');
+    assert.equal(r.source, 'file');
+    assert.equal(scanText('the agent said test-token-value-1234567890', 'x').some((h) => h.kind === 'identifier'), true);
+    mkdirSync(join(dir, 'repo', '.git'), { recursive: true });
+    const inRepo = join(dir, 'repo', 'oauth-token.txt');
+    writeFileSync(inRepo, 'test-token-value-1234567890');
+    process.env.BENCH_OAUTH_TOKEN_FILE = inRepo;
+    assert.match(String(readBenchToken().problem), /inside the git work tree/);
+    process.env.BENCH_OAUTH_TOKEN_FILE = join(dir, 'missing.txt');
+    assert.equal(readBenchToken().source, 'env', 'CI fallback');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+    if (saved.env) process.env.CLAUDE_CODE_OAUTH_TOKEN = saved.env;
+    else delete process.env.CLAUDE_CODE_OAUTH_TOKEN;
+    if (saved.file) process.env.BENCH_OAUTH_TOKEN_FILE = saved.file;
+    else delete process.env.BENCH_OAUTH_TOKEN_FILE;
+  }
 });

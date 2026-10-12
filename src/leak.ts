@@ -15,6 +15,7 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, resolve, extname } from 'node:path';
 import os from 'node:os';
+import { readBenchToken } from './token.ts';
 
 export interface LeakHit {
   where: string;
@@ -44,6 +45,9 @@ export function operatorIdentifiers(): string[] {
   } catch {
     // no user info in this environment
   }
+  // The subscription token itself must never appear in a transcript.
+  const token = readBenchToken().token;
+  if (token && token.length >= 12) ids.add(token.toLowerCase());
   const home = os.homedir();
   if (home && home.length > 3) {
     ids.add(home.toLowerCase());

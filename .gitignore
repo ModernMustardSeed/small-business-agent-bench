@@ -4,3 +4,5 @@ results/scratch*/
 .env
 .env.*
 *.log
+oauth-token.txt
+.bench/
