@@ -1,0 +1,63 @@
+name: bench
+
+# Runs the benchmark on a Claude subscription through the Claude Code CLI.
+# Manual only. Needs the repository secret CLAUDE_CODE_OAUTH_TOKEN (from
+# `claude setup-token`). The runner deletes any API key from the CLI's
+# environment, and refuses metered adapters when CI is set, so this workflow
+# cannot bill per token.
+
+on:
+  workflow_dispatch:
+    inputs:
+      tasks:
+        description: 'all, smoke, human, a domain, or task ids'
+        default: smoke
+      model:
+        description: 'Agent model'
+        default: claude-opus-5-5
+      effort:
+        description: 'low, medium, high, xhigh, max'
+        default: medium
+      trials:
+        description: 'Trials per task'
+        default: '1'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bench
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      TASKS: ${{ inputs.tasks }}
+      MODEL: ${{ inputs.model }}
+      EFFORT: ${{ inputs.effort }}
+      TRIALS: ${{ inputs.trials }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Require the subscription token
+        run: |
+          if [ -z "$CLAUDE_CODE_OAUTH_TOKEN" ]; then echo "Set the CLAUDE_CODE_OAUTH_TOKEN repository secret first."; exit 1; fi
+      - name: Install Claude Code
+        run: |
+          for i in 1 2 3; do npm install -g @anthropic-ai/claude-code && break; sleep 10; done
+          claude --version
+      - name: Run
+        run: node src/run.ts --adapter claude-code --model "$MODEL" --effort "$EFFORT" --tasks "$TASKS" --trials "$TRIALS" --out results/ci-run
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bench-results
+          path: results/ci-run

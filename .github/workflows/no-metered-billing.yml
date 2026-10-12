@@ -1,0 +1,28 @@
+name: no-metered-billing
+
+# A grep, not a model. Fails any change that would hand a workflow a metered
+# model key. Workflows that reach a model use CLAUDE_CODE_OAUTH_TOKEN, which
+# runs on a Claude subscription, never ANTHROPIC_API_KEY or OPENAI_API_KEY.
+
+on:
+  pull_request:
+    paths: ['.github/workflows/**']
+  push:
+    branches: [main]
+    paths: ['.github/workflows/**']
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refuse metered keys in workflows
+        run: |
+          if grep -rnE 'secrets\.(ANTHROPIC_API_KEY|OPENAI_API_KEY)|anthropic_api_key:' .github/workflows ; then
+            echo "A workflow references a metered model key. Use CLAUDE_CODE_OAUTH_TOKEN."; exit 1
+          fi
+          echo "clean"

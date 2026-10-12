@@ -1,0 +1,29 @@
+{
+  "name": "small-business-agent-bench",
+  "version": "1.0.0",
+  "description": "An open benchmark of how well AI agents handle real small-business work: 200 tasks, 8 domains, sandboxed tools, deterministic grading.",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "engines": { "node": ">=22.18" },
+  "packageManager": "pnpm@10.18.0",
+  "scripts": {
+    "validate": "node src/tasks.ts",
+    "test": "node --test test/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "samples": "node src/samples.ts",
+    "smoke": "node src/run.ts --adapter claude-code --tasks smoke",
+    "bench": "node src/run.ts",
+    "estimate": "node src/estimate.ts",
+    "report": "node src/report.ts",
+    "sheet": "node src/sheet.ts",
+    "agreement": "node src/agreement.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.133.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  }
+}

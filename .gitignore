@@ -1,0 +1,6 @@
+node_modules/
+results/*/partial.json
+results/scratch*/
+.env
+.env.*
+*.log

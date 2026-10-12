@@ -1,0 +1,43 @@
+{
+  "seed_string": "small-business-agent-bench:v1",
+  "seed": 3416891716,
+  "smoke": [
+    "compliance-004",
+    "invoicing-017",
+    "leads-020",
+    "multistep-015",
+    "multistep-020"
+  ],
+  "human_agreement": [
+    "compliance-004",
+    "compliance-011",
+    "compliance-013",
+    "inquiry-002",
+    "inquiry-014",
+    "inquiry-018",
+    "inquiry-020",
+    "invoicing-008",
+    "invoicing-015",
+    "invoicing-017",
+    "invoicing-020",
+    "leads-003",
+    "leads-007",
+    "leads-020",
+    "leads-023",
+    "multistep-015",
+    "multistep-017",
+    "multistep-020",
+    "quoting-005",
+    "quoting-006",
+    "quoting-008",
+    "quoting-016",
+    "reviews-009",
+    "reviews-014",
+    "reviews-021",
+    "reviews-024",
+    "scheduling-009",
+    "scheduling-016",
+    "scheduling-019",
+    "scheduling-025"
+  ]
+}
