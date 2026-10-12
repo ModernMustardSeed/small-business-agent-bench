@@ -107,10 +107,7 @@ if (process.argv[1]?.endsWith('sheet.ts')) {
   const args = process.argv.slice(2);
   const outIdx = args.indexOf('--out');
   const out = outIdx >= 0 ? args.splice(outIdx, 2)[1] : 'grading';
-  if (!args.length) {
-    console.error('usage: node src/sheet.ts <results.json> [more results.json] [--out grading]');
-    process.exit(2);
-  }
+  // With no results file the sheet lists all 30 tasks as not run yet.
   const r = buildSheet(args.map((a) => resolve(a)), resolve(out));
   console.log(`grading sheet written; ${30 - r.missing.length} of 30 tasks have transcripts${r.missing.length ? `; not run yet: ${r.missing.join(', ')}` : ''}`);
 }

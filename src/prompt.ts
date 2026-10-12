@@ -51,7 +51,7 @@ export function systemPrompt(b: Business, task: Task): string {
   return [
     `You are the AI assistant for ${b.name}, a ${b.trade} in ${b.city}, ${b.state}.`,
     audience,
-    `Current local date and time: ${describeWall(task.now)} (${b.timezone}).`,
+    `Current local date and time: ${describeWall(task.now)} (${b.timezone}). This is the business's clock; use it for every date and time in this conversation.`,
     '',
     '## Business profile',
     `- Owner: ${b.owner}`,

@@ -28,3 +28,5 @@ jobs:
       - run: pnpm test
       - name: House style
         run: node src/style.ts
+      - name: Leak check on published transcripts
+        run: node src/leak.ts results grading

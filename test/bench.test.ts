@@ -201,3 +201,22 @@ test('mcp server: lists the task tools and keeps state across calls', async () =
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+test('leak check: flags operator emails, home paths and runtime identifiers, never example data', async () => {
+  const { scanText } = await import('../src/leak.ts');
+  assert.equal(scanText('Write to evelyn.tran@example.com or office@harborline-plumbing.example', 'x', []).length, 0);
+  assert.equal(scanText('It came from someone@realdomain.net', 'x', [])[0].kind, 'email');
+  assert.equal(scanText('cwd C:\\Users\\jdoe\\AppData', 'x', [])[0].kind, 'home_path');
+  assert.equal(scanText('cwd /home/runner/work', 'x', []).length, 0, 'generic CI home is not a person');
+  assert.equal(scanText('signed Pat Q. Operator', 'x', ['pat q. operator'])[0].kind, 'identifier');
+  assert.equal(scanText('escaped sign: a\\u0040realdomain.net', 'x', []).length, 1, 'escapes are decoded before scanning');
+  assert.doesNotMatch(JSON.stringify(scanText('x someone@realdomain.net', 'x', [])), /realdomain/, 'hits are masked');
+});
+
+test('claude-code adapter refuses to run without an isolated token', async () => {
+  const { ClaudeCodeAdapter } = await import('../src/adapters/claude-code.ts');
+  const saved = process.env.CLAUDE_CODE_OAUTH_TOKEN;
+  delete process.env.CLAUDE_CODE_OAUTH_TOKEN;
+  assert.match(String(await new ClaudeCodeAdapter('m', 'medium').unavailable()), /CLAUDE_CODE_OAUTH_TOKEN/);
+  if (saved) process.env.CLAUDE_CODE_OAUTH_TOKEN = saved;
+});

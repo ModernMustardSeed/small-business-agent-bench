@@ -40,6 +40,9 @@ import { loadBusinesses, loadSamples, loadTasks, taskFileHashes, sha256, ROOT, v
 import { PRICES_AS_OF, priceFor } from './pricing.ts';
 import { seededShuffle, seedFromString } from './seed.ts';
 import { aggregate } from './stats.ts';
+import { scanText } from './leak.ts';
+import { homedir } from 'node:os';
+import { rmSync } from 'node:fs';
 import { renderReport, safeJson } from './report.ts';
 
 function arg(name: string, def?: string): string | undefined {
@@ -280,7 +283,20 @@ async function main(): Promise<void> {
     stopped_for_budget: stoppedForBudget,
   };
   const summary = aggregate(results, tasks);
-  writeFileSync(join(outDir, 'results.json'), safeJson({ run, summary, results }, 1));
+  const body = safeJson({ run, summary, results }, 1);
+  // Leak check: a transcript that carries the operator's email, username or
+  // home path is contaminated. It never reaches the results directory.
+  const leaks = scanText(body, 'results');
+  if (leaks.length) {
+    const qdir = process.env.BENCH_QUARANTINE_DIR || join(homedir(), '.bench-quarantine');
+    mkdirSync(qdir, { recursive: true });
+    const qfile = join(qdir, `leaked-${stamp}.json`);
+    writeFileSync(qfile, body);
+    rmSync(join(outDir, 'partial.json'), { force: true });
+    console.error(`LEAK CHECK FAILED: ${leaks.length} hit(s) (${[...new Set(leaks.map((l) => l.kind))].join(', ')}). Nothing was written to ${outDir}. Quarantined at ${qfile}.`);
+    process.exit(3);
+  }
+  writeFileSync(join(outDir, 'results.json'), body);
   writeFileSync(join(outDir, 'report.html'), renderReport({ run, summary, results }, all, businesses));
   console.log(`\nPass rate ${(summary.pass_rate * 100).toFixed(1)}% (${summary.passed}/${summary.attempts}), critical failures ${summary.critical_failures}, cost $${summary.cost.total_usd.toFixed(4)} (${run.agent.billing})`);
   console.log(`Wrote ${join(outDir, 'results.json')} and report.html`);

@@ -165,10 +165,9 @@ tasks is graded by a person, blind to the judge.
 - **Bar.** The judge is accepted when agreement is at least 85 percent and
   kappa at least 0.60. Below either, the judge prompt is revised and checked
   again on a fresh sample, and the revision is published with its reason.
-- **Status for v1.** The sheet in `grading/` currently carries transcripts for
-  the 5 smoke tasks, which sit inside the sample. The other 25 fill in from
-  one run (`node src/run.ts --tasks human --out results/human-sample-30`,
-  then `node src/sheet.ts results/smoke/results.json
+- **Status for v1.** The sheet in `grading/` lists the 30 tasks and fills in
+  from one isolated run (`node src/run.ts --tasks human --out
+  results/human-sample-30`, then `node src/sheet.ts
   results/human-sample-30/results.json`). Until the human grades are in,
   judge-dependent numbers are provisional.
 
@@ -178,10 +177,16 @@ The runner (`src/run.ts`) takes an adapter:
 
 - **`claude-code`** runs the agent through the Claude Code CLI on a Claude
   subscription. The task's tools are served to the CLI by a local MCP server,
-  so tool use is native. The adapter replaces the CLI's system prompt,
-  disables every built-in tool, loads no user settings, memory or other MCP
-  servers, runs in an empty directory, and removes any API key from the
-  child environment so nothing is billed per token.
+  so tool use is native. The adapter replaces the CLI's system prompt and
+  disables every built-in tool. Each task runs in a clean room: a fresh, empty
+  config directory, authentication only through a `claude setup-token` token,
+  an allowlisted environment with no API key, account or username, and a
+  working directory outside the operator's profile. A logged-in CLI profile
+  attaches the operator's account email, working directory and real date to
+  every request even under a custom system prompt; an unpublished canary task
+  found this on 2026-10-12, the runs it touched were withdrawn, and the
+  adapter refuses to use a profile. The CLI still adds its own date line; the
+  system prompt names the business's clock and tells the agent to use it.
 - **`anthropic`** calls the Messages API directly: adaptive thinking at the
   model's default, effort set explicitly and recorded, the system prompt and
   tools cached, `tool_choice` auto, no server-side fallback (a refusal is
@@ -195,6 +200,13 @@ SHA-256). The sandbox is deterministic. Model outputs are not: current
 models do not take a sampling seed, and Claude models reject temperature
 settings. Variance is measured instead of hidden: `--trials k` repeats every
 task and the report adds how many tasks passed on every trial.
+
+**Leak check.** Every task is fictional, so a transcript that contains an
+email address outside the reserved example domains, a home directory path, or
+an operator identifier supplied at run time (`BENCH_OPERATOR_IDENTIFIERS`,
+plus the machine's own username and home directory) is contaminated. The
+runner quarantines such a run outside the repository and writes nothing, and
+CI scans every published transcript the same way (`src/leak.ts`).
 
 **What a result file records.** The commit, SHA-256 hashes of every task file
 and of the judge prompt, the seed, the adapter, model, effort and billing
