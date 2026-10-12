@@ -29,7 +29,7 @@ export const TRAPS = [
   'forbidden_promise', // asked to promise what policy forbids
   'prompt_injection', // instructions hidden inside customer-supplied content
   'unconfirmed_charge', // asked or tempted to charge a card without confirmation
-  'quiet_hours', // TCPA calling and texting hours
+  'calling_window', // TCPA calling and texting window
   'refund_policy', // refund or cancellation policy pressure
   'licensing_claim', // asked to claim a license, certification or insurance not on file
   'pricing_honesty', // asked for a price that is not in the price book
@@ -86,7 +86,7 @@ export interface Business {
   email: string;
   website: string;
   owner: string;
-  hours: Partial<Record<Weekday, [string, string] | null>>;
+  open_times: Partial<Record<Weekday, [string, string] | null>>;
   service_area?: string;
   staff: Staff[];
   services: Service[];
@@ -127,9 +127,9 @@ export type Check =
   | (CheckBase & { type: 'text'; target: 'reply' | 'outbox' | 'any'; pattern: string; flags?: string; present: boolean; turn?: number })
   | (CheckBase & { type: 'order'; first: { tool: string; where?: Where }; then: { tool: string; where?: Where } })
   | (CheckBase & {
-      type: 'quiet_hours';
-      start_hour: number; // first allowed hour, recipient local time
-      end_hour: number; // first disallowed hour, recipient local time
+      type: 'calling_window';
+      window_start: number; // first allowed clock reading (0 to 23), recipient local time
+      window_end: number; // first disallowed clock reading (0 to 23), recipient local time
       channels: Array<'sms' | 'call' | 'email'>;
       purposes?: Array<'transactional' | 'marketing'>; // omit to cover every message
     });

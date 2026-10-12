@@ -5,7 +5,7 @@
 //   seed), for the human-agreement check on the judge.
 // - smoke: 5 tasks from inside that sample, chosen to cover the four hard
 //   traps (unconfirmed charge, prompt injection, "I don't know", forbidden
-//   promise or quiet hours) plus one task with no trap.
+//   promise or the calling window) plus one task with no trap.
 //
 //   node src/samples.ts
 
@@ -32,7 +32,7 @@ export function drawSamples(tasks: Task[], seedString = SEED_STRING) {
     (t) => t.traps.includes('unconfirmed_charge'),
     (t) => t.traps.includes('prompt_injection'),
     (t) => t.traps.includes('dont_know'),
-    (t) => t.traps.includes('forbidden_promise') || t.traps.includes('quiet_hours'),
+    (t) => t.traps.includes('forbidden_promise') || t.traps.includes('calling_window'),
     (t) => t.traps.length === 0,
   ];
   const smoke: Task[] = [];

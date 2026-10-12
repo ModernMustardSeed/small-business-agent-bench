@@ -10,7 +10,7 @@ import {
   addDays,
   normalizeDate,
   normalizeWall,
-  recipientLocalHour,
+  recipientClock,
   weekdayOf,
 } from '../time.ts';
 
@@ -180,15 +180,15 @@ export class World {
     return staff;
   }
 
-  private withinHours(start: string, end: string): boolean {
+  private withinOpenTimes(start: string, end: string): boolean {
     const day = weekdayOf(start);
-    const hours = this.business.hours[day];
-    if (!hours) return false;
+    const open = this.business.open_times[day];
+    if (!open) return false;
     if (start.slice(0, 10) !== end.slice(0, 10) && end.slice(11) !== '00:00') return false;
     if (this.state.closures.some((c) => c.date === start.slice(0, 10))) return false;
     const s = start.slice(11);
     const e = end.slice(11);
-    return s >= hours[0] && e <= hours[1] && e > s;
+    return s >= open[0] && e <= open[1] && e > s;
   }
 
   private overlaps(staffId: string, start: string, end: string, ignoreId?: string): boolean {
@@ -206,7 +206,7 @@ export class World {
 
   private checkBookable(start: string, end: string): void {
     if (start <= this.now) throw new ToolError(`${start} is in the past. It is now ${this.now}.`);
-    if (!this.withinHours(start, end)) throw new ToolError(`${start} to ${end.slice(11)} is outside business hours or on a closed day.`);
+    if (!this.withinOpenTimes(start, end)) throw new ToolError(`${start} to ${end.slice(11)} is outside opening times or on a closed day.`);
   }
 
   private pushOutbox(customer: Customer, channel: string, body: string, purpose: string, sendAt: string, kind: string): Row {
@@ -222,7 +222,7 @@ export class World {
       body,
       send_at: sendAt,
       status: sendAt > this.now ? 'scheduled' : 'sent',
-      recipient_local_hour: recipientLocalHour(sendAt, this.business.timezone, tz),
+      recipient_clock: recipientClock(sendAt, this.business.timezone, tz),
     };
     this.state.outbox.push(row);
     return row;
@@ -295,11 +295,11 @@ export class World {
         const slots: Array<{ start: string; staff_id: string; staff_name: string }> = [];
         let day = from;
         for (let i = 0; i < 31 && day <= to && slots.length < 12; i++, day = addDays(day, 1)) {
-          const hours = this.business.hours[weekdayOf(day)];
-          if (!hours || st.closures.some((c) => c.date === day)) continue;
-          for (let t = `${day}T${hours[0]}`; slots.length < 12; t = addMinutes(t, 30)) {
+          const open = this.business.open_times[weekdayOf(day)];
+          if (!open || st.closures.some((c) => c.date === day)) continue;
+          for (let t = `${day}T${open[0]}`; slots.length < 12; t = addMinutes(t, 30)) {
             const end = addMinutes(t, svc.duration_minutes);
-            if (end.slice(11) > hours[1] || end.slice(0, 10) !== day) break;
+            if (end.slice(11) > open[1] || end.slice(0, 10) !== day) break;
             if (t <= this.now) continue;
             const free = staff.find((s) => !this.overlaps(s.id, t, end));
             if (free) slots.push({ start: t, staff_id: free.id, staff_name: free.name });
@@ -424,7 +424,7 @@ export class World {
         const at = this.wall(a.at, 'at');
         if (at < this.now) throw new ToolError(`${at} is in the past. It is now ${this.now}.`);
         const tz = (c.timezone as string) || this.business.timezone;
-        const row = { id: this.nextId('calls'), customer_id: c.id, at, purpose: a.purpose, recipient_local_hour: recipientLocalHour(at, this.business.timezone, tz) };
+        const row = { id: this.nextId('calls'), customer_id: c.id, at, purpose: a.purpose, recipient_clock: recipientClock(at, this.business.timezone, tz) };
         st.calls.push(row);
         return { scheduled: row };
       }

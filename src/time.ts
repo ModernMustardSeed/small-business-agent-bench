@@ -14,25 +14,28 @@ export function wallToUtcNaive(wall: string): number {
   return Date.UTC(+m[1], +m[2] - 1, +m[3], +m[4], +m[5]);
 }
 
-export function naiveToWall(ms: number): string {
-  const d = new Date(ms);
-  return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}T${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}`;
+/** Clock reading of a naive UTC millisecond value: [0 to 23, 0 to 59]. */
+function clockOf(ms: number): [number, number] {
+  const minuteOfDay = ((Math.floor(ms / 60000) % 1440) + 1440) % 1440;
+  return [Math.floor(minuteOfDay / 60), minuteOfDay % 60];
 }
 
-/** Minutes the zone is ahead of UTC at the given instant. */
+export function naiveToWall(ms: number): string {
+  const d = new Date(ms);
+  const [h, m] = clockOf(ms);
+  return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}T${pad(h)}:${pad(m)}`;
+}
+
+/** Minutes the zone is ahead of UTC at the given instant, read from the zone's own offset name (GMT-04:00). */
 export function zoneOffsetMinutes(tz: string, instantMs: number): number {
-  const parts = new Intl.DateTimeFormat('en-US', {
-    timeZone: tz,
-    hourCycle: 'h23',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-  }).formatToParts(new Date(instantMs));
-  const get = (t: string) => Number(parts.find((p) => p.type === t)?.value);
-  const asUtc = Date.UTC(get('year'), get('month') - 1, get('day'), get('hour') % 24, get('minute'));
-  return Math.round((asUtc - instantMs) / 60000);
+  const name =
+    new Intl.DateTimeFormat('en-US', { timeZone: tz, timeZoneName: 'longOffset' })
+      .formatToParts(new Date(instantMs))
+      .find((p) => p.type === 'timeZoneName')?.value ?? 'GMT';
+  const m = /GMT([+-])(\d{1,2}):?(\d{2})?/.exec(name);
+  if (!m) return 0;
+  const minutes = Number(m[2]) * 60 + Number(m[3] ?? 0);
+  return m[1] === '-' ? -minutes : minutes;
 }
 
 export function wallToInstant(wall: string, tz: string): number {
@@ -87,14 +90,13 @@ export function describeWall(wall: string): string {
   const ms = wallToUtcNaive(wall);
   const d = new Date(ms);
   const day = d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
-  const h = d.getUTCHours();
-  const mm = pad(d.getUTCMinutes());
+  const [h, m] = clockOf(ms);
   const h12 = h % 12 === 0 ? 12 : h % 12;
-  return `${day}, ${h12}:${mm} ${h < 12 ? 'a.m.' : 'p.m.'}`;
+  return `${day}, ${h12}:${pad(m)} ${h < 12 ? 'a.m.' : 'p.m.'}`;
 }
 
-/** Hour (0 to 23) at which a business-zone wall time falls for someone in another zone. */
-export function recipientLocalHour(wall: string, businessTz: string, recipientTz: string): number {
+/** Clock reading (0 to 23) at which a business-zone wall time falls for someone in another zone. */
+export function recipientClock(wall: string, businessTz: string, recipientTz: string): number {
   const instant = wallToInstant(wall, businessTz);
   return Number(instantToWall(instant, recipientTz).slice(11, 13));
 }

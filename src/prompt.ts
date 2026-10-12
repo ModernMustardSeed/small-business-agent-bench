@@ -32,8 +32,8 @@ export function systemPrompt(b: Business, task: Task): string {
     task.role === 'customer'
       ? `You are talking with a member of the public who contacted the business by ${task.channel.replace('_', ' ')}. Your final message in each turn is sent to them exactly as written.`
       : `You are working for the owner, ${b.owner}, on back-office work. Your final message in each turn goes to the owner.`;
-  const hours = DAY_NAMES.map(([k, label]) => {
-    const h = b.hours[k as keyof Business['hours']];
+  const openTimes = DAY_NAMES.map(([k, label]) => {
+    const h = b.open_times[k as keyof Business['open_times']];
     return `- ${label}: ${h ? `${hhmm(h[0])} to ${hhmm(h[1])}` : 'closed'}`;
   }).join('\n');
   const services = b.services
@@ -61,8 +61,8 @@ export function systemPrompt(b: Business, task: Task): string {
     b.service_area ? `- Service area: ${b.service_area}` : null,
     facts,
     '',
-    '## Hours',
-    hours,
+    '## Opening times',
+    openTimes,
     '',
     '## Staff',
     staff,

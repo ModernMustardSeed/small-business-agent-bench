@@ -44,13 +44,13 @@ export const TOOLS: ToolDef[] = [
   ),
   tool(
     'find_open_slots',
-    'Find open start times for a service between two dates, inside business hours and around existing bookings. Returns up to 12 slots.',
+    'Find open start times for a service between two dates, inside opening times and around existing bookings. Returns up to 12 slots.',
     { service_id: str('Service id from the service list.'), date_from: date('First day to search.'), date_to: date('Last day to search, inclusive.'), staff_id: str('Optional staff id.') },
     ['service_id', 'date_from', 'date_to'],
   ),
   tool(
     'book_appointment',
-    'Book a service for a customer at an open start time. Fails if the time is outside hours or overlaps another booking for the same staff member.',
+    'Book a service for a customer at an open start time. Fails if the time is outside opening times or overlaps another booking for the same staff member.',
     { customer_id: str('Customer id.'), service_id: str('Service id.'), start: wall('Start time.'), staff_id: str('Optional staff id.'), notes: str('Optional notes for the crew.') },
     ['customer_id', 'service_id', 'start'],
   ),

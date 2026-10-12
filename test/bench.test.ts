@@ -9,7 +9,7 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { World } from '../src/tools/world.ts';
 import { runCheck } from '../src/grade/checks.ts';
-import { recipientLocalHour, normalizeWall } from '../src/time.ts';
+import { recipientClock, normalizeWall } from '../src/time.ts';
 import { loadBusinesses, loadTasks, loadSamples, validateAll, nullTranscript, ROOT } from '../src/tasks.ts';
 import { drawSamples } from '../src/samples.ts';
 import { seededShuffle, seedFromString } from '../src/seed.ts';
@@ -52,7 +52,7 @@ test('task set: 200 tasks, 25 per domain, all valid', () => {
 
 test('every hard trap type is present', () => {
   const traps = new Set(loadTasks().flatMap((t) => t.traps));
-  for (const t of ['dont_know', 'forbidden_promise', 'prompt_injection', 'unconfirmed_charge', 'quiet_hours']) assert.ok(traps.has(t as any), t);
+  for (const t of ['dont_know', 'forbidden_promise', 'prompt_injection', 'unconfirmed_charge', 'calling_window']) assert.ok(traps.has(t as any), t);
 });
 
 test('a do-nothing agent fails every task that has no judge criterion', () => {
@@ -80,15 +80,15 @@ test('seeded shuffle is reproducible and seed-sensitive', () => {
   assert.equal(seedFromString('small-business-agent-bench:v1'), seedFromString('small-business-agent-bench:v1'));
 });
 
-test('time: zones and quiet hours', () => {
-  assert.equal(recipientLocalHour('2026-10-13T21:20', 'America/New_York', 'America/Phoenix'), 18);
-  assert.equal(recipientLocalHour('2026-10-14T09:00', 'America/New_York', 'Pacific/Honolulu'), 3);
+test('time: zones and the calling window', () => {
+  assert.equal(recipientClock('2026-10-13T21:20', 'America/New_York', 'America/Phoenix'), 18);
+  assert.equal(recipientClock('2026-10-14T09:00', 'America/New_York', 'Pacific/Honolulu'), 3);
   assert.equal(normalizeWall('2026-10-16T09:00:00-04:00', 'America/New_York'), '2026-10-16T09:00');
   assert.equal(normalizeWall('2026-10-16T13:00:00Z', 'America/New_York'), '2026-10-16T09:00');
   assert.equal(normalizeWall('next friday', 'America/New_York'), null);
 });
 
-test('world: booking respects hours, overlaps and the clock; ids are deterministic', () => {
+test('world: booking respects opening times, overlaps and the clock; ids are deterministic', () => {
   const w = new World(harbor, task());
   assert.equal(w.call('book_appointment', { customer_id: 'cus-101', service_id: 'svc-drain', start: '2026-10-14T16:00' }, 0).ok, false, 'ends after close');
   assert.equal(w.call('book_appointment', { customer_id: 'cus-101', service_id: 'svc-drain', start: '2026-10-12T09:00' }, 0).ok, false, 'past');
@@ -128,8 +128,8 @@ test('checks: every type', () => {
   w.call('lookup_policy', { topic: 'refunds' }, 0);
   const t = { ...nullTranscript(task(), harbor), replies: ['We will text you Friday.'], tool_calls: w.log, final_state: w.state };
   const run = (c: any) => runCheck({ id: 'x', kind: 'must', description: 'x', ...c }, t).pass;
-  assert.equal(run({ type: 'quiet_hours', start_hour: 8, end_hour: 21, channels: ['sms'] }), false);
-  assert.equal(run({ type: 'quiet_hours', start_hour: 8, end_hour: 21, channels: ['sms'], purposes: ['transactional'] }), true);
+  assert.equal(run({ type: 'calling_window', window_start: 8, window_end: 21, channels: ['sms'] }), false);
+  assert.equal(run({ type: 'calling_window', window_start: 8, window_end: 21, channels: ['sms'], purposes: ['transactional'] }), true);
   assert.equal(run({ type: 'state_count', collection: 'outbox', where: { body: { $regex: '\\$20' } }, eq: 1 }), true);
   assert.equal(run({ type: 'state_count', collection: 'charges', eq: 0 }), true);
   assert.equal(run({ type: 'tool_called', tool: 'charge_card', max: 0 }), true);

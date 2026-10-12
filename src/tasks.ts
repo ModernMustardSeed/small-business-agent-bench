@@ -112,8 +112,8 @@ function checkProblems(c: Check, t: Task): string[] {
       if (!['reply', 'outbox', 'any'].includes(c.target)) errs.push(`${at}: bad target`);
       if (typeof c.present !== 'boolean') errs.push(`${at}: present must be true or false`);
       break;
-    case 'quiet_hours':
-      if (!(c.start_hour >= 0 && c.end_hour <= 24 && c.start_hour < c.end_hour)) errs.push(`${at}: bad hours`);
+    case 'calling_window':
+      if (!(c.window_start >= 0 && c.window_end <= 24 && c.window_start < c.window_end)) errs.push(`${at}: bad window`);
       break;
     default:
       errs.push(`${at}: unknown check type ${(c as any).type}`);

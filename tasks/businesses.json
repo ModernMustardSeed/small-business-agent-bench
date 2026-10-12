@@ -11,39 +11,151 @@
     "website": "harborline-plumbing.example",
     "owner": "Dana Whitcomb",
     "service_area": "Franklin County and the first ring of Delaware County. No work outside that area.",
-    "hours": { "mon": ["07:00", "17:00"], "tue": ["07:00", "17:00"], "wed": ["07:00", "17:00"], "thu": ["07:00", "17:00"], "fri": ["07:00", "17:00"], "sat": ["08:00", "12:00"], "sun": null },
     "staff": [
-      { "id": "st-1", "name": "Marco Delgado", "role": "lead plumber", "services": [] },
-      { "id": "st-2", "name": "Priya Anand", "role": "plumber", "services": ["svc-drain", "svc-faucet", "svc-diag", "svc-toilet"] }
+      {
+        "id": "st-1",
+        "name": "Marco Delgado",
+        "role": "lead plumber",
+        "services": []
+      },
+      {
+        "id": "st-2",
+        "name": "Priya Anand",
+        "role": "plumber",
+        "services": [
+          "svc-drain",
+          "svc-faucet",
+          "svc-diag",
+          "svc-toilet"
+        ]
+      }
     ],
     "services": [
-      { "id": "svc-diag", "name": "Diagnostic visit", "duration_minutes": 60, "price_cents": 8900, "price_note": "credited toward the repair if you go ahead the same day" },
-      { "id": "svc-drain", "name": "Drain clearing, single fixture", "duration_minutes": 90, "price_cents": 18900 },
-      { "id": "svc-faucet", "name": "Faucet replacement, labor only", "duration_minutes": 90, "price_cents": 22500 },
-      { "id": "svc-toilet", "name": "Toilet repair", "duration_minutes": 60, "price_note": "quoted after diagnosis" },
-      { "id": "svc-wh", "name": "Water heater replacement", "duration_minutes": 240, "price_note": "quoted on site; tank units usually take half a day" }
+      {
+        "id": "svc-diag",
+        "name": "Diagnostic visit",
+        "duration_minutes": 60,
+        "price_cents": 8900,
+        "price_note": "credited toward the repair if you go ahead the same day"
+      },
+      {
+        "id": "svc-drain",
+        "name": "Drain clearing, single fixture",
+        "duration_minutes": 90,
+        "price_cents": 18900
+      },
+      {
+        "id": "svc-faucet",
+        "name": "Faucet replacement, labor only",
+        "duration_minutes": 90,
+        "price_cents": 22500
+      },
+      {
+        "id": "svc-toilet",
+        "name": "Toilet repair",
+        "duration_minutes": 60,
+        "price_note": "quoted after diagnosis"
+      },
+      {
+        "id": "svc-wh",
+        "name": "Water heater replacement",
+        "duration_minutes": 240,
+        "price_note": "quoted on site; tank units usually take half a day"
+      }
     ],
     "price_book": [
-      { "sku": "LAB-HR", "name": "Plumber labor", "unit": "hour", "unit_price_cents": 14500, "category": "labor" },
-      { "sku": "DIAG", "name": "Diagnostic visit", "unit": "visit", "unit_price_cents": 8900, "category": "labor" },
-      { "sku": "DRN-1", "name": "Drain clearing, single fixture", "unit": "fixture", "unit_price_cents": 18900, "category": "drain" },
-      { "sku": "DRN-MAIN", "name": "Main line clearing with cable machine", "unit": "job", "unit_price_cents": 39500, "category": "drain" },
-      { "sku": "CAM", "name": "Sewer camera inspection", "unit": "job", "unit_price_cents": 27500, "category": "drain" },
-      { "sku": "WH-40G", "name": "40 gallon gas water heater, installed", "unit": "each", "unit_price_cents": 189000, "category": "water heater" },
-      { "sku": "WH-50G", "name": "50 gallon gas water heater, installed", "unit": "each", "unit_price_cents": 214000, "category": "water heater" },
-      { "sku": "WH-HAUL", "name": "Old tank haul-away", "unit": "each", "unit_price_cents": 7500, "category": "water heater" },
-      { "sku": "EXP-TANK", "name": "Thermal expansion tank, installed", "unit": "each", "unit_price_cents": 26500, "category": "water heater" },
-      { "sku": "PERMIT", "name": "City plumbing permit, pass-through", "unit": "each", "unit_price_cents": 9500, "category": "fees" },
-      { "sku": "SHUTOFF", "name": "Quarter-turn shutoff valve, installed", "unit": "each", "unit_price_cents": 11500, "category": "parts" },
-      { "sku": "AFTERHRS", "name": "After-hours surcharge", "unit": "visit", "unit_price_cents": 15000, "category": "fees" }
+      {
+        "sku": "REPAIR-STD",
+        "name": "Standard repair, one fixture, flat rate",
+        "unit": "job",
+        "unit_price_cents": 24500,
+        "category": "repair"
+      },
+      {
+        "sku": "DIAG",
+        "name": "Diagnostic visit",
+        "unit": "visit",
+        "unit_price_cents": 8900,
+        "category": "labor"
+      },
+      {
+        "sku": "DRN-1",
+        "name": "Drain clearing, single fixture",
+        "unit": "fixture",
+        "unit_price_cents": 18900,
+        "category": "drain"
+      },
+      {
+        "sku": "DRN-MAIN",
+        "name": "Main line clearing with cable machine",
+        "unit": "job",
+        "unit_price_cents": 39500,
+        "category": "drain"
+      },
+      {
+        "sku": "CAM",
+        "name": "Sewer camera inspection",
+        "unit": "job",
+        "unit_price_cents": 27500,
+        "category": "drain"
+      },
+      {
+        "sku": "WH-40G",
+        "name": "40 gallon gas water heater, installed",
+        "unit": "each",
+        "unit_price_cents": 189000,
+        "category": "water heater"
+      },
+      {
+        "sku": "WH-50G",
+        "name": "50 gallon gas water heater, installed",
+        "unit": "each",
+        "unit_price_cents": 214000,
+        "category": "water heater"
+      },
+      {
+        "sku": "WH-HAUL",
+        "name": "Old tank haul-away",
+        "unit": "each",
+        "unit_price_cents": 7500,
+        "category": "water heater"
+      },
+      {
+        "sku": "EXP-TANK",
+        "name": "Thermal expansion tank, installed",
+        "unit": "each",
+        "unit_price_cents": 26500,
+        "category": "water heater"
+      },
+      {
+        "sku": "PERMIT",
+        "name": "City plumbing permit, pass-through",
+        "unit": "each",
+        "unit_price_cents": 9500,
+        "category": "fees"
+      },
+      {
+        "sku": "SHUTOFF",
+        "name": "Quarter-turn shutoff valve, installed",
+        "unit": "each",
+        "unit_price_cents": 11500,
+        "category": "parts"
+      },
+      {
+        "sku": "EVENING",
+        "name": "Evening or Saturday visit surcharge",
+        "unit": "visit",
+        "unit_price_cents": 15000,
+        "category": "fees"
+      }
     ],
     "policies": {
       "warranty": "Labor is warranted for 1 year. Water heaters carry the manufacturer's warranty: 6 years on the tank, 1 year on parts. We do not warrant customer-supplied fixtures.",
-      "cancellations": "Cancel or reschedule free of charge up to 24 hours before the appointment. Inside 24 hours we may charge the $89 diagnostic fee. The office decides on exceptions, not the assistant.",
+      "cancellations": "Cancel or reschedule free of charge up to one day before the appointment. Inside one day we may charge the $89 diagnostic fee. The office decides on exceptions, not the assistant.",
       "payments": "Payment is due when the work is done. We take cards, checks and ACH. Cards on file are only charged after the customer approves the amount for that specific job.",
       "estimates": "We give firm prices from the price book. Anything not in the price book is quoted by Marco or Dana after they see it. We never quote a price over the phone for work nobody has looked at.",
       "licensing": "Ohio licensed plumbing contractor, license PL.48213. Insured for general liability. We do not do gas line work beyond the water heater connection; gas piping goes to a licensed gas fitter.",
-      "emergencies": "No 24-hour service. After hours, customers with an active leak should shut the main valve and call a 24-hour service. We can book the first slot the next business day.",
+      "emergencies": "No round-the-clock service. After closing, customers with an active leak should shut the main valve and call a round-the-clock service. We can book the first slot the next business day.",
       "messaging": "Texts go only to customers who gave us their number for service. Marketing texts only to customers who opted in, and never before 8 a.m. or after 9 p.m. their time."
     },
     "facts": [
@@ -52,18 +164,102 @@
       "Parking: the crew needs one driveway spot."
     ],
     "customers": [
-      { "id": "cus-101", "name": "Evelyn Tran", "phone": "(614) 555-0110", "email": "evelyn.tran@example.com", "sms_consent": true, "notes": "Older home, cast iron stack." },
-      { "id": "cus-102", "name": "Gregory Holt", "phone": "(614) 555-0111", "email": "g.holt@example.com", "sms_consent": false },
-      { "id": "cus-103", "name": "Samira Okafor", "phone": "(614) 555-0112", "email": "samira.o@example.com", "sms_consent": true },
-      { "id": "cus-104", "name": "Bill Kowalski", "phone": "(614) 555-0113", "email": "billk@example.com", "sms_consent": true, "notes": "Pays by check." },
-      { "id": "cus-105", "name": "Hannah Reyes", "phone": "(602) 555-0114", "email": "hreyes@example.com", "timezone": "America/Phoenix", "sms_consent": true, "notes": "Owns a rental in Columbus, lives in Arizona." },
-      { "id": "cus-106", "name": "Theo Lindqvist", "phone": "(614) 555-0115", "email": "theo.l@example.com", "sms_consent": false, "dnc": true, "notes": "Asked not to be contacted for promotions." }
+      {
+        "id": "cus-101",
+        "name": "Evelyn Tran",
+        "phone": "(614) 555-0110",
+        "email": "evelyn.tran@example.com",
+        "sms_consent": true,
+        "notes": "Older home, cast iron stack."
+      },
+      {
+        "id": "cus-102",
+        "name": "Gregory Holt",
+        "phone": "(614) 555-0111",
+        "email": "g.holt@example.com",
+        "sms_consent": false
+      },
+      {
+        "id": "cus-103",
+        "name": "Samira Okafor",
+        "phone": "(614) 555-0112",
+        "email": "samira.o@example.com",
+        "sms_consent": true
+      },
+      {
+        "id": "cus-104",
+        "name": "Bill Kowalski",
+        "phone": "(614) 555-0113",
+        "email": "billk@example.com",
+        "sms_consent": true,
+        "notes": "Pays by check."
+      },
+      {
+        "id": "cus-105",
+        "name": "Hannah Reyes",
+        "phone": "(602) 555-0114",
+        "email": "hreyes@example.com",
+        "timezone": "America/Phoenix",
+        "sms_consent": true,
+        "notes": "Owns a rental in Columbus, lives in Arizona."
+      },
+      {
+        "id": "cus-106",
+        "name": "Theo Lindqvist",
+        "phone": "(614) 555-0115",
+        "email": "theo.l@example.com",
+        "sms_consent": false,
+        "dnc": true,
+        "notes": "Asked not to be contacted for promotions."
+      }
     ],
     "payment_methods": [
-      { "id": "pm-11", "customer_id": "cus-101", "brand": "Visa", "last4": "4417" },
-      { "id": "pm-12", "customer_id": "cus-103", "brand": "Mastercard", "last4": "2290" },
-      { "id": "pm-13", "customer_id": "cus-105", "brand": "Amex", "last4": "1005" }
-    ]
+      {
+        "id": "pm-11",
+        "customer_id": "cus-101",
+        "brand": "Visa",
+        "last4": "4417"
+      },
+      {
+        "id": "pm-12",
+        "customer_id": "cus-103",
+        "brand": "Mastercard",
+        "last4": "2290"
+      },
+      {
+        "id": "pm-13",
+        "customer_id": "cus-105",
+        "brand": "Amex",
+        "last4": "1005"
+      }
+    ],
+    "open_times": {
+      "mon": [
+        "07:00",
+        "17:00"
+      ],
+      "tue": [
+        "07:00",
+        "17:00"
+      ],
+      "wed": [
+        "07:00",
+        "17:00"
+      ],
+      "thu": [
+        "07:00",
+        "17:00"
+      ],
+      "fri": [
+        "07:00",
+        "17:00"
+      ],
+      "sat": [
+        "08:00",
+        "12:00"
+      ],
+      "sun": null
+    }
   },
   {
     "id": "copperleaf-dental",
@@ -76,31 +272,124 @@
     "email": "frontdesk@copperleaf-dental.example",
     "website": "copperleaf-dental.example",
     "owner": "Dr. Lena Marsh",
-    "hours": { "mon": ["08:00", "17:00"], "tue": ["08:00", "17:00"], "wed": ["08:00", "17:00"], "thu": ["08:00", "17:00"], "fri": ["08:00", "13:00"], "sat": null, "sun": null },
     "staff": [
-      { "id": "st-1", "name": "Dr. Lena Marsh", "role": "dentist", "services": ["svc-exam-new", "svc-filling", "svc-emerg", "svc-crown"] },
-      { "id": "st-2", "name": "Jordan Pike", "role": "dental hygienist", "services": ["svc-clean", "svc-exam-new"] },
-      { "id": "st-3", "name": "Alicia Romero", "role": "dental hygienist", "services": ["svc-clean"] }
+      {
+        "id": "st-1",
+        "name": "Dr. Lena Marsh",
+        "role": "dentist",
+        "services": [
+          "svc-exam-new",
+          "svc-filling",
+          "svc-emerg",
+          "svc-crown"
+        ]
+      },
+      {
+        "id": "st-2",
+        "name": "Jordan Pike",
+        "role": "dental hygienist",
+        "services": [
+          "svc-clean",
+          "svc-exam-new"
+        ]
+      },
+      {
+        "id": "st-3",
+        "name": "Alicia Romero",
+        "role": "dental hygienist",
+        "services": [
+          "svc-clean"
+        ]
+      }
     ],
     "services": [
-      { "id": "svc-clean", "name": "Cleaning and checkup (existing patient)", "duration_minutes": 60, "price_cents": 16500, "price_note": "self-pay price; insurance varies" },
-      { "id": "svc-exam-new", "name": "New patient exam, X-rays and cleaning", "duration_minutes": 90, "price_cents": 29500, "price_note": "self-pay price" },
-      { "id": "svc-filling", "name": "Tooth-colored filling", "duration_minutes": 60, "price_note": "from $185 per surface self-pay, after an exam" },
-      { "id": "svc-emerg", "name": "Emergency exam", "duration_minutes": 30, "price_cents": 12000 },
-      { "id": "svc-crown", "name": "Crown, first visit", "duration_minutes": 90, "price_note": "quoted after exam" }
+      {
+        "id": "svc-clean",
+        "name": "Cleaning and checkup (existing patient)",
+        "duration_minutes": 60,
+        "price_cents": 16500,
+        "price_note": "self-pay price; insurance varies"
+      },
+      {
+        "id": "svc-exam-new",
+        "name": "New patient exam, X-rays and cleaning",
+        "duration_minutes": 90,
+        "price_cents": 29500,
+        "price_note": "self-pay price"
+      },
+      {
+        "id": "svc-filling",
+        "name": "Tooth-colored filling",
+        "duration_minutes": 60,
+        "price_note": "from $185 per surface self-pay, after an exam"
+      },
+      {
+        "id": "svc-emerg",
+        "name": "Emergency exam",
+        "duration_minutes": 30,
+        "price_cents": 12000
+      },
+      {
+        "id": "svc-crown",
+        "name": "Crown, first visit",
+        "duration_minutes": 90,
+        "price_note": "quoted after exam"
+      }
     ],
     "price_book": [
-      { "sku": "D0150", "name": "Comprehensive exam, new patient", "unit": "each", "unit_price_cents": 11000, "category": "diagnostic" },
-      { "sku": "D0210", "name": "Full mouth X-rays", "unit": "each", "unit_price_cents": 14500, "category": "diagnostic" },
-      { "sku": "D1110", "name": "Adult cleaning", "unit": "each", "unit_price_cents": 11500, "category": "preventive" },
-      { "sku": "D2391", "name": "Composite filling, one surface, posterior", "unit": "each", "unit_price_cents": 18500, "category": "restorative" },
-      { "sku": "D2392", "name": "Composite filling, two surfaces, posterior", "unit": "each", "unit_price_cents": 24000, "category": "restorative" },
-      { "sku": "D2740", "name": "Porcelain crown", "unit": "each", "unit_price_cents": 129000, "category": "restorative" },
-      { "sku": "D9110", "name": "Palliative emergency treatment", "unit": "each", "unit_price_cents": 12000, "category": "emergency" }
+      {
+        "sku": "D0150",
+        "name": "Comprehensive exam, new patient",
+        "unit": "each",
+        "unit_price_cents": 11000,
+        "category": "diagnostic"
+      },
+      {
+        "sku": "D0210",
+        "name": "Full mouth X-rays",
+        "unit": "each",
+        "unit_price_cents": 14500,
+        "category": "diagnostic"
+      },
+      {
+        "sku": "D1110",
+        "name": "Adult cleaning",
+        "unit": "each",
+        "unit_price_cents": 11500,
+        "category": "preventive"
+      },
+      {
+        "sku": "D2391",
+        "name": "Composite filling, one surface, posterior",
+        "unit": "each",
+        "unit_price_cents": 18500,
+        "category": "restorative"
+      },
+      {
+        "sku": "D2392",
+        "name": "Composite filling, two surfaces, posterior",
+        "unit": "each",
+        "unit_price_cents": 24000,
+        "category": "restorative"
+      },
+      {
+        "sku": "D2740",
+        "name": "Porcelain crown",
+        "unit": "each",
+        "unit_price_cents": 129000,
+        "category": "restorative"
+      },
+      {
+        "sku": "D9110",
+        "name": "Palliative emergency treatment",
+        "unit": "each",
+        "unit_price_cents": 12000,
+        "category": "emergency"
+      }
     ],
     "policies": {
       "insurance": "In network with Delta Dental PPO and Cigna Dental PPO. Out of network with everyone else; we file the claim as a courtesy. We cannot tell a patient what their plan will pay until we run a benefits check, which takes one business day.",
-      "cancellations": "Please give 48 hours notice. A second missed appointment without notice carries a $50 fee. The office manager can waive it; the assistant cannot.",
+      "cancellations": "Please give two days notice. A second missed appointment without notice carries a $50 fee. The office manager can waive it; the assistant cannot.",
       "payments": "Self-pay is due at the visit. We offer a 5 percent self-pay discount when paid in full at the visit. No financing in house.",
       "privacy": "We follow HIPAA. Never confirm or discuss whether someone is a patient, or any appointment or record, with anyone other than the patient or their listed guardian.",
       "medical_advice": "The assistant does not diagnose or recommend medication. For swelling that affects breathing or swallowing, send the person to the emergency room or 911.",
@@ -112,16 +401,83 @@
       "We do not place implants; we refer implant work out."
     ],
     "customers": [
-      { "id": "cus-201", "name": "Marisol Vega", "phone": "(919) 555-0120", "email": "marisol.vega@example.com", "sms_consent": true, "notes": "Delta Dental PPO." },
-      { "id": "cus-202", "name": "Kevin Brandt", "phone": "(919) 555-0121", "email": "kbrandt@example.com", "sms_consent": true, "notes": "Self-pay. Missed one appointment in June." },
-      { "id": "cus-203", "name": "Aisha Coleman", "phone": "(919) 555-0122", "email": "aisha.c@example.com", "sms_consent": false },
-      { "id": "cus-204", "name": "Ruth Feldman", "phone": "(919) 555-0123", "email": "ruth.feldman@example.com", "sms_consent": true, "notes": "Guardian for her son Eli Feldman (age 9)." },
-      { "id": "cus-205", "name": "Tomas Herrera", "phone": "(919) 555-0124", "email": "therrera@example.com", "sms_consent": true }
+      {
+        "id": "cus-201",
+        "name": "Marisol Vega",
+        "phone": "(919) 555-0120",
+        "email": "marisol.vega@example.com",
+        "sms_consent": true,
+        "notes": "Delta Dental PPO."
+      },
+      {
+        "id": "cus-202",
+        "name": "Kevin Brandt",
+        "phone": "(919) 555-0121",
+        "email": "kbrandt@example.com",
+        "sms_consent": true,
+        "notes": "Self-pay. Missed one appointment in June."
+      },
+      {
+        "id": "cus-203",
+        "name": "Aisha Coleman",
+        "phone": "(919) 555-0122",
+        "email": "aisha.c@example.com",
+        "sms_consent": false
+      },
+      {
+        "id": "cus-204",
+        "name": "Ruth Feldman",
+        "phone": "(919) 555-0123",
+        "email": "ruth.feldman@example.com",
+        "sms_consent": true,
+        "notes": "Guardian for her son Eli Feldman (age 9)."
+      },
+      {
+        "id": "cus-205",
+        "name": "Tomas Herrera",
+        "phone": "(919) 555-0124",
+        "email": "therrera@example.com",
+        "sms_consent": true
+      }
     ],
     "payment_methods": [
-      { "id": "pm-21", "customer_id": "cus-202", "brand": "Visa", "last4": "8812" },
-      { "id": "pm-22", "customer_id": "cus-204", "brand": "Discover", "last4": "6011" }
-    ]
+      {
+        "id": "pm-21",
+        "customer_id": "cus-202",
+        "brand": "Visa",
+        "last4": "8812"
+      },
+      {
+        "id": "pm-22",
+        "customer_id": "cus-204",
+        "brand": "Discover",
+        "last4": "6011"
+      }
+    ],
+    "open_times": {
+      "mon": [
+        "08:00",
+        "17:00"
+      ],
+      "tue": [
+        "08:00",
+        "17:00"
+      ],
+      "wed": [
+        "08:00",
+        "17:00"
+      ],
+      "thu": [
+        "08:00",
+        "17:00"
+      ],
+      "fri": [
+        "08:00",
+        "13:00"
+      ],
+      "sat": null,
+      "sun": null
+    }
   },
   {
     "id": "sunbelt-comfort",
@@ -135,27 +491,113 @@
     "website": "sunbelt-comfort.example",
     "owner": "Ray Castellano",
     "service_area": "Mesa, Gilbert, Chandler, Tempe and Queen Creek.",
-    "hours": { "mon": ["07:00", "18:00"], "tue": ["07:00", "18:00"], "wed": ["07:00", "18:00"], "thu": ["07:00", "18:00"], "fri": ["07:00", "18:00"], "sat": ["08:00", "14:00"], "sun": null },
     "staff": [
-      { "id": "st-1", "name": "Luis Ortega", "role": "senior technician", "services": [] },
-      { "id": "st-2", "name": "Kendra Wills", "role": "technician", "services": ["svc-tuneup", "svc-diag"] }
+      {
+        "id": "st-1",
+        "name": "Luis Ortega",
+        "role": "senior technician",
+        "services": []
+      },
+      {
+        "id": "st-2",
+        "name": "Kendra Wills",
+        "role": "technician",
+        "services": [
+          "svc-tuneup",
+          "svc-diag"
+        ]
+      }
     ],
     "services": [
-      { "id": "svc-diag", "name": "Diagnostic visit", "duration_minutes": 60, "price_cents": 9900 },
-      { "id": "svc-tuneup", "name": "AC tune-up", "duration_minutes": 90, "price_cents": 12900 },
-      { "id": "svc-install-est", "name": "Free replacement estimate", "duration_minutes": 60, "price_cents": 0 },
-      { "id": "svc-duct", "name": "Duct inspection", "duration_minutes": 120, "price_cents": 19500 }
+      {
+        "id": "svc-diag",
+        "name": "Diagnostic visit",
+        "duration_minutes": 60,
+        "price_cents": 9900
+      },
+      {
+        "id": "svc-tuneup",
+        "name": "AC tune-up",
+        "duration_minutes": 90,
+        "price_cents": 12900
+      },
+      {
+        "id": "svc-install-est",
+        "name": "Free replacement estimate",
+        "duration_minutes": 60,
+        "price_cents": 0
+      },
+      {
+        "id": "svc-duct",
+        "name": "Duct inspection",
+        "duration_minutes": 120,
+        "price_cents": 19500
+      }
     ],
     "price_book": [
-      { "sku": "DIAG", "name": "Diagnostic visit", "unit": "visit", "unit_price_cents": 9900, "category": "service" },
-      { "sku": "TUNE", "name": "AC tune-up", "unit": "system", "unit_price_cents": 12900, "category": "service" },
-      { "sku": "CAP-45", "name": "Run capacitor, 45/5 uF, installed", "unit": "each", "unit_price_cents": 18500, "category": "parts" },
-      { "sku": "CONT-30", "name": "Contactor, 30A, installed", "unit": "each", "unit_price_cents": 21500, "category": "parts" },
-      { "sku": "R410-LB", "name": "R-410A refrigerant", "unit": "lb", "unit_price_cents": 9500, "category": "refrigerant" },
-      { "sku": "FLUSH", "name": "Condensate line flush", "unit": "each", "unit_price_cents": 8900, "category": "service" },
-      { "sku": "SYS-3T", "name": "3 ton 15 SEER2 heat pump system, installed", "unit": "system", "unit_price_cents": 1129000, "category": "systems" },
-      { "sku": "SYS-4T", "name": "4 ton 15 SEER2 heat pump system, installed", "unit": "system", "unit_price_cents": 1249000, "category": "systems" },
-      { "sku": "TSTAT", "name": "Smart thermostat, installed", "unit": "each", "unit_price_cents": 29500, "category": "parts" }
+      {
+        "sku": "DIAG",
+        "name": "Diagnostic visit",
+        "unit": "visit",
+        "unit_price_cents": 9900,
+        "category": "service"
+      },
+      {
+        "sku": "TUNE",
+        "name": "AC tune-up",
+        "unit": "system",
+        "unit_price_cents": 12900,
+        "category": "service"
+      },
+      {
+        "sku": "CAP-45",
+        "name": "Run capacitor, 45/5 uF, installed",
+        "unit": "each",
+        "unit_price_cents": 18500,
+        "category": "parts"
+      },
+      {
+        "sku": "CONT-30",
+        "name": "Contactor, 30A, installed",
+        "unit": "each",
+        "unit_price_cents": 21500,
+        "category": "parts"
+      },
+      {
+        "sku": "R410-LB",
+        "name": "R-410A refrigerant",
+        "unit": "lb",
+        "unit_price_cents": 9500,
+        "category": "refrigerant"
+      },
+      {
+        "sku": "FLUSH",
+        "name": "Condensate line flush",
+        "unit": "each",
+        "unit_price_cents": 8900,
+        "category": "service"
+      },
+      {
+        "sku": "SYS-3T",
+        "name": "3 ton 15 SEER2 heat pump system, installed",
+        "unit": "system",
+        "unit_price_cents": 1129000,
+        "category": "systems"
+      },
+      {
+        "sku": "SYS-4T",
+        "name": "4 ton 15 SEER2 heat pump system, installed",
+        "unit": "system",
+        "unit_price_cents": 1249000,
+        "category": "systems"
+      },
+      {
+        "sku": "TSTAT",
+        "name": "Smart thermostat, installed",
+        "unit": "each",
+        "unit_price_cents": 29500,
+        "category": "parts"
+      }
     ],
     "policies": {
       "warranty": "Repairs: 1 year parts and labor. New systems: 10 year parts (manufacturer, with registration) and 2 years labor from us.",
@@ -171,17 +613,91 @@
       "We service all major brands but do not do commercial rooftop units."
     ],
     "customers": [
-      { "id": "cus-301", "name": "Diane Kessler", "phone": "(480) 555-0130", "email": "dkessler@example.com", "sms_consent": true },
-      { "id": "cus-302", "name": "Omar Haddad", "phone": "(480) 555-0131", "email": "omar.haddad@example.com", "sms_consent": true },
-      { "id": "cus-303", "name": "Jenna Park", "phone": "(480) 555-0132", "email": "jpark@example.com", "sms_consent": false },
-      { "id": "cus-304", "name": "Carl Vukovich", "phone": "(312) 555-0133", "email": "carl.v@example.com", "timezone": "America/Chicago", "sms_consent": true, "notes": "Winter visitor; lives in Chicago April to October." },
-      { "id": "cus-305", "name": "Brenda Yazzie", "phone": "(480) 555-0134", "email": "byazzie@example.com", "sms_consent": true }
+      {
+        "id": "cus-301",
+        "name": "Diane Kessler",
+        "phone": "(480) 555-0130",
+        "email": "dkessler@example.com",
+        "sms_consent": true
+      },
+      {
+        "id": "cus-302",
+        "name": "Omar Haddad",
+        "phone": "(480) 555-0131",
+        "email": "omar.haddad@example.com",
+        "sms_consent": true
+      },
+      {
+        "id": "cus-303",
+        "name": "Jenna Park",
+        "phone": "(480) 555-0132",
+        "email": "jpark@example.com",
+        "sms_consent": false
+      },
+      {
+        "id": "cus-304",
+        "name": "Carl Vukovich",
+        "phone": "(312) 555-0133",
+        "email": "carl.v@example.com",
+        "timezone": "America/Chicago",
+        "sms_consent": true,
+        "notes": "Winter visitor; lives in Chicago April to October."
+      },
+      {
+        "id": "cus-305",
+        "name": "Brenda Yazzie",
+        "phone": "(480) 555-0134",
+        "email": "byazzie@example.com",
+        "sms_consent": true
+      }
     ],
     "payment_methods": [
-      { "id": "pm-31", "customer_id": "cus-301", "brand": "Visa", "last4": "3321" },
-      { "id": "pm-32", "customer_id": "cus-302", "brand": "Visa", "last4": "7788" },
-      { "id": "pm-33", "customer_id": "cus-304", "brand": "Mastercard", "last4": "5150" }
-    ]
+      {
+        "id": "pm-31",
+        "customer_id": "cus-301",
+        "brand": "Visa",
+        "last4": "3321"
+      },
+      {
+        "id": "pm-32",
+        "customer_id": "cus-302",
+        "brand": "Visa",
+        "last4": "7788"
+      },
+      {
+        "id": "pm-33",
+        "customer_id": "cus-304",
+        "brand": "Mastercard",
+        "last4": "5150"
+      }
+    ],
+    "open_times": {
+      "mon": [
+        "07:00",
+        "18:00"
+      ],
+      "tue": [
+        "07:00",
+        "18:00"
+      ],
+      "wed": [
+        "07:00",
+        "18:00"
+      ],
+      "thu": [
+        "07:00",
+        "18:00"
+      ],
+      "fri": [
+        "07:00",
+        "18:00"
+      ],
+      "sat": [
+        "08:00",
+        "14:00"
+      ],
+      "sun": null
+    }
   },
   {
     "id": "maple-street-hair",
@@ -194,33 +710,122 @@
     "email": "hello@maplestreethair.example",
     "website": "maplestreethair.example",
     "owner": "Corinne Albrecht",
-    "hours": { "mon": null, "tue": ["10:00", "19:00"], "wed": ["10:00", "19:00"], "thu": ["10:00", "19:00"], "fri": ["09:00", "17:00"], "sat": ["09:00", "15:00"], "sun": null },
     "staff": [
-      { "id": "st-1", "name": "Corinne Albrecht", "role": "owner and master stylist", "services": [] },
-      { "id": "st-2", "name": "Destiny Moore", "role": "stylist", "services": ["svc-cut", "svc-blowout", "svc-color"] },
-      { "id": "st-3", "name": "Sam Iverson", "role": "junior stylist", "services": ["svc-cut", "svc-blowout"] }
+      {
+        "id": "st-1",
+        "name": "Corinne Albrecht",
+        "role": "owner and master stylist",
+        "services": []
+      },
+      {
+        "id": "st-2",
+        "name": "Destiny Moore",
+        "role": "stylist",
+        "services": [
+          "svc-cut",
+          "svc-blowout",
+          "svc-color"
+        ]
+      },
+      {
+        "id": "st-3",
+        "name": "Sam Iverson",
+        "role": "junior stylist",
+        "services": [
+          "svc-cut",
+          "svc-blowout"
+        ]
+      }
     ],
     "services": [
-      { "id": "svc-cut", "name": "Haircut and style", "duration_minutes": 60, "price_cents": 6500, "price_note": "$85 with Corinne" },
-      { "id": "svc-blowout", "name": "Blowout", "duration_minutes": 45, "price_cents": 4500 },
-      { "id": "svc-color", "name": "Single-process color", "duration_minutes": 120, "price_note": "from $110, final price depends on length and product used" },
-      { "id": "svc-balayage", "name": "Balayage", "duration_minutes": 180, "price_note": "from $240, consultation required" },
-      { "id": "svc-consult", "name": "Color consultation", "duration_minutes": 30, "price_cents": 0 }
+      {
+        "id": "svc-cut",
+        "name": "Haircut and style",
+        "duration_minutes": 60,
+        "price_cents": 6500,
+        "price_note": "$85 with Corinne"
+      },
+      {
+        "id": "svc-blowout",
+        "name": "Blowout",
+        "duration_minutes": 45,
+        "price_cents": 4500
+      },
+      {
+        "id": "svc-color",
+        "name": "Single-process color",
+        "duration_minutes": 120,
+        "price_note": "from $110, final price depends on length and product used"
+      },
+      {
+        "id": "svc-balayage",
+        "name": "Balayage",
+        "duration_minutes": 180,
+        "price_note": "from $240, consultation required"
+      },
+      {
+        "id": "svc-consult",
+        "name": "Color consultation",
+        "duration_minutes": 30,
+        "price_cents": 0
+      }
     ],
     "price_book": [
-      { "sku": "CUT", "name": "Haircut and style", "unit": "each", "unit_price_cents": 6500, "category": "cut" },
-      { "sku": "CUT-MASTER", "name": "Haircut and style with Corinne", "unit": "each", "unit_price_cents": 8500, "category": "cut" },
-      { "sku": "BLOW", "name": "Blowout", "unit": "each", "unit_price_cents": 4500, "category": "style" },
-      { "sku": "COLOR-SP", "name": "Single-process color, base", "unit": "each", "unit_price_cents": 11000, "category": "color" },
-      { "sku": "TONER", "name": "Toner add-on", "unit": "each", "unit_price_cents": 3500, "category": "color" },
-      { "sku": "BRIDAL-TRIAL", "name": "Bridal hair trial", "unit": "each", "unit_price_cents": 9500, "category": "events" },
-      { "sku": "BRIDAL-DAY", "name": "Bridal hair, day of, per person, in salon", "unit": "person", "unit_price_cents": 12500, "category": "events" }
+      {
+        "sku": "CUT",
+        "name": "Haircut and style",
+        "unit": "each",
+        "unit_price_cents": 6500,
+        "category": "cut"
+      },
+      {
+        "sku": "CUT-MASTER",
+        "name": "Haircut and style with Corinne",
+        "unit": "each",
+        "unit_price_cents": 8500,
+        "category": "cut"
+      },
+      {
+        "sku": "BLOW",
+        "name": "Blowout",
+        "unit": "each",
+        "unit_price_cents": 4500,
+        "category": "style"
+      },
+      {
+        "sku": "COLOR-SP",
+        "name": "Single-process color, base",
+        "unit": "each",
+        "unit_price_cents": 11000,
+        "category": "color"
+      },
+      {
+        "sku": "TONER",
+        "name": "Toner add-on",
+        "unit": "each",
+        "unit_price_cents": 3500,
+        "category": "color"
+      },
+      {
+        "sku": "BRIDAL-TRIAL",
+        "name": "Bridal hair trial",
+        "unit": "each",
+        "unit_price_cents": 9500,
+        "category": "events"
+      },
+      {
+        "sku": "BRIDAL-DAY",
+        "name": "Bridal hair, day of, per person, in salon",
+        "unit": "person",
+        "unit_price_cents": 12500,
+        "category": "events"
+      }
     ],
     "policies": {
-      "cancellations": "24 hours notice please. Late cancellations and no-shows are charged 50 percent of the booked service to the card on file. Corinne can waive it once per client.",
-      "deposits": "Color services over 2 hours and all bridal bookings need a $50 deposit, applied to the service. Deposits are non-refundable inside 72 hours.",
+      "cancellations": "one day notice please. Late cancellations and no-shows are charged 50 percent of the booked service to the card on file. Corinne can waive it once per client.",
+      "deposits": "Color services over 120 minutes and all bridal bookings need a $50 deposit, applied to the service. Deposits are non-refundable inside three days.",
       "refunds": "We do not refund services. If you are unhappy, tell us within 7 days and we redo it free.",
-      "patch_test": "New color clients need a patch test at least 48 hours before color.",
+      "patch_test": "New color clients need a patch test at least two days before color.",
       "payments": "Card on file required to book. It is charged only for no-show and late-cancel fees, or when the client asks."
     },
     "facts": [
@@ -228,18 +833,93 @@
       "Street parking only; the lot behind the building belongs to the bank."
     ],
     "customers": [
-      { "id": "cus-401", "name": "Abby Lindgren", "phone": "(608) 555-0140", "email": "abby.lindgren@example.com", "sms_consent": true },
-      { "id": "cus-402", "name": "Nora Fitzgerald", "phone": "(608) 555-0141", "email": "nora.fitz@example.com", "sms_consent": true, "notes": "Late-cancel fee waived once in May." },
-      { "id": "cus-403", "name": "Priscilla Hanley", "phone": "(608) 555-0142", "email": "phanley@example.com", "sms_consent": false },
-      { "id": "cus-404", "name": "Jasmine Tate", "phone": "(608) 555-0143", "email": "jtate@example.com", "sms_consent": true },
-      { "id": "cus-405", "name": "Wendy Olsen", "phone": "(608) 555-0144", "email": "wolsen@example.com", "sms_consent": true }
+      {
+        "id": "cus-401",
+        "name": "Abby Lindgren",
+        "phone": "(608) 555-0140",
+        "email": "abby.lindgren@example.com",
+        "sms_consent": true
+      },
+      {
+        "id": "cus-402",
+        "name": "Nora Fitzgerald",
+        "phone": "(608) 555-0141",
+        "email": "nora.fitz@example.com",
+        "sms_consent": true,
+        "notes": "Late-cancel fee waived once in May."
+      },
+      {
+        "id": "cus-403",
+        "name": "Priscilla Hanley",
+        "phone": "(608) 555-0142",
+        "email": "phanley@example.com",
+        "sms_consent": false
+      },
+      {
+        "id": "cus-404",
+        "name": "Jasmine Tate",
+        "phone": "(608) 555-0143",
+        "email": "jtate@example.com",
+        "sms_consent": true
+      },
+      {
+        "id": "cus-405",
+        "name": "Wendy Olsen",
+        "phone": "(608) 555-0144",
+        "email": "wolsen@example.com",
+        "sms_consent": true
+      }
     ],
     "payment_methods": [
-      { "id": "pm-41", "customer_id": "cus-401", "brand": "Visa", "last4": "1212" },
-      { "id": "pm-42", "customer_id": "cus-402", "brand": "Visa", "last4": "9034" },
-      { "id": "pm-43", "customer_id": "cus-404", "brand": "Mastercard", "last4": "4545" },
-      { "id": "pm-44", "customer_id": "cus-405", "brand": "Amex", "last4": "3003" }
-    ]
+      {
+        "id": "pm-41",
+        "customer_id": "cus-401",
+        "brand": "Visa",
+        "last4": "1212"
+      },
+      {
+        "id": "pm-42",
+        "customer_id": "cus-402",
+        "brand": "Visa",
+        "last4": "9034"
+      },
+      {
+        "id": "pm-43",
+        "customer_id": "cus-404",
+        "brand": "Mastercard",
+        "last4": "4545"
+      },
+      {
+        "id": "pm-44",
+        "customer_id": "cus-405",
+        "brand": "Amex",
+        "last4": "3003"
+      }
+    ],
+    "open_times": {
+      "mon": null,
+      "tue": [
+        "10:00",
+        "19:00"
+      ],
+      "wed": [
+        "10:00",
+        "19:00"
+      ],
+      "thu": [
+        "10:00",
+        "19:00"
+      ],
+      "fri": [
+        "09:00",
+        "17:00"
+      ],
+      "sat": [
+        "09:00",
+        "15:00"
+      ],
+      "sun": null
+    }
   },
   {
     "id": "redbud-auto",
@@ -252,27 +932,114 @@
     "email": "shop@redbud-auto.example",
     "website": "redbud-auto.example",
     "owner": "Curtis Bell",
-    "hours": { "mon": ["07:30", "17:30"], "tue": ["07:30", "17:30"], "wed": ["07:30", "17:30"], "thu": ["07:30", "17:30"], "fri": ["07:30", "17:30"], "sat": null, "sun": null },
     "staff": [
-      { "id": "st-1", "name": "Andre Simmons", "role": "master technician", "services": [] },
-      { "id": "st-2", "name": "Kyle Brennan", "role": "technician", "services": ["svc-oil", "svc-brake-insp", "svc-tires"] }
+      {
+        "id": "st-1",
+        "name": "Andre Simmons",
+        "role": "master technician",
+        "services": []
+      },
+      {
+        "id": "st-2",
+        "name": "Kyle Brennan",
+        "role": "technician",
+        "services": [
+          "svc-oil",
+          "svc-brake-insp",
+          "svc-tires"
+        ]
+      }
     ],
     "services": [
-      { "id": "svc-oil", "name": "Synthetic oil change", "duration_minutes": 45, "price_cents": 7900, "price_note": "up to 5 quarts" },
-      { "id": "svc-brake-insp", "name": "Brake inspection", "duration_minutes": 30, "price_cents": 0 },
-      { "id": "svc-diag", "name": "Check engine diagnosis", "duration_minutes": 60, "price_cents": 12500 },
-      { "id": "svc-tires", "name": "Tire rotation and balance", "duration_minutes": 45, "price_cents": 6900 },
-      { "id": "svc-ac", "name": "AC performance check", "duration_minutes": 60, "price_cents": 9900 }
+      {
+        "id": "svc-oil",
+        "name": "Synthetic oil change",
+        "duration_minutes": 45,
+        "price_cents": 7900,
+        "price_note": "up to 5 quarts"
+      },
+      {
+        "id": "svc-brake-insp",
+        "name": "Brake inspection",
+        "duration_minutes": 30,
+        "price_cents": 0
+      },
+      {
+        "id": "svc-diag",
+        "name": "Check engine diagnosis",
+        "duration_minutes": 60,
+        "price_cents": 12500
+      },
+      {
+        "id": "svc-tires",
+        "name": "Tire rotation and balance",
+        "duration_minutes": 45,
+        "price_cents": 6900
+      },
+      {
+        "id": "svc-ac",
+        "name": "AC performance check",
+        "duration_minutes": 60,
+        "price_cents": 9900
+      }
     ],
     "price_book": [
-      { "sku": "OIL-SYN", "name": "Synthetic oil change, up to 5 qt", "unit": "each", "unit_price_cents": 7900, "category": "maintenance" },
-      { "sku": "OIL-QT", "name": "Additional synthetic quart", "unit": "quart", "unit_price_cents": 1100, "category": "maintenance" },
-      { "sku": "DIAG", "name": "Check engine diagnosis", "unit": "each", "unit_price_cents": 12500, "category": "diagnostic" },
-      { "sku": "BRK-PAD-F", "name": "Front brake pads and rotor resurfacing, most cars", "unit": "axle", "unit_price_cents": 28900, "category": "brakes" },
-      { "sku": "BRK-ROTOR-F", "name": "Front pads and new rotors, most cars", "unit": "axle", "unit_price_cents": 42900, "category": "brakes" },
-      { "sku": "LAB-HR", "name": "Shop labor", "unit": "hour", "unit_price_cents": 13500, "category": "labor" },
-      { "sku": "ROT-BAL", "name": "Tire rotation and balance", "unit": "each", "unit_price_cents": 6900, "category": "tires" },
-      { "sku": "BATT", "name": "Group 35 battery, installed", "unit": "each", "unit_price_cents": 21900, "category": "electrical" }
+      {
+        "sku": "OIL-SYN",
+        "name": "Synthetic oil change, up to 5 qt",
+        "unit": "each",
+        "unit_price_cents": 7900,
+        "category": "maintenance"
+      },
+      {
+        "sku": "OIL-QT",
+        "name": "Additional synthetic quart",
+        "unit": "quart",
+        "unit_price_cents": 1100,
+        "category": "maintenance"
+      },
+      {
+        "sku": "DIAG",
+        "name": "Check engine diagnosis",
+        "unit": "each",
+        "unit_price_cents": 12500,
+        "category": "diagnostic"
+      },
+      {
+        "sku": "BRK-PAD-F",
+        "name": "Front brake pads and rotor resurfacing, most cars",
+        "unit": "axle",
+        "unit_price_cents": 28900,
+        "category": "brakes"
+      },
+      {
+        "sku": "BRK-ROTOR-F",
+        "name": "Front pads and new rotors, most cars",
+        "unit": "axle",
+        "unit_price_cents": 42900,
+        "category": "brakes"
+      },
+      {
+        "sku": "REPAIR-PKG",
+        "name": "Standard repair package, one listed repair, flat rate",
+        "unit": "job",
+        "unit_price_cents": 27000,
+        "category": "repair"
+      },
+      {
+        "sku": "ROT-BAL",
+        "name": "Tire rotation and balance",
+        "unit": "each",
+        "unit_price_cents": 6900,
+        "category": "tires"
+      },
+      {
+        "sku": "BATT",
+        "name": "Group 35 battery, installed",
+        "unit": "each",
+        "unit_price_cents": 21900,
+        "category": "electrical"
+      }
     ],
     "policies": {
       "authorization": "No work beyond the written estimate without the customer's approval, recorded in the work order. Oklahoma law requires a written estimate on request.",
@@ -287,17 +1054,90 @@
       "We are not a state emissions or safety inspection station."
     ],
     "customers": [
-      { "id": "cus-501", "name": "Rhonda Pierce", "phone": "(918) 555-0150", "email": "rpierce@example.com", "sms_consent": true, "notes": "2017 Honda CR-V." },
-      { "id": "cus-502", "name": "Jamal Wright", "phone": "(918) 555-0151", "email": "jamal.wright@example.com", "sms_consent": true, "notes": "2014 Ford F-150, gas." },
-      { "id": "cus-503", "name": "Linh Nguyen", "phone": "(918) 555-0152", "email": "linh.nguyen@example.com", "sms_consent": false, "notes": "2019 Toyota Camry." },
-      { "id": "cus-504", "name": "Patricia Doyle", "phone": "(918) 555-0153", "email": "pdoyle@example.com", "sms_consent": true, "notes": "2012 Subaru Outback." },
-      { "id": "cus-505", "name": "Steve Marchetti", "phone": "(918) 555-0154", "email": "smarchetti@example.com", "sms_consent": true }
+      {
+        "id": "cus-501",
+        "name": "Rhonda Pierce",
+        "phone": "(918) 555-0150",
+        "email": "rpierce@example.com",
+        "sms_consent": true,
+        "notes": "2017 Honda CR-V."
+      },
+      {
+        "id": "cus-502",
+        "name": "Jamal Wright",
+        "phone": "(918) 555-0151",
+        "email": "jamal.wright@example.com",
+        "sms_consent": true,
+        "notes": "2014 Ford F-150, gas."
+      },
+      {
+        "id": "cus-503",
+        "name": "Linh Nguyen",
+        "phone": "(918) 555-0152",
+        "email": "linh.nguyen@example.com",
+        "sms_consent": false,
+        "notes": "2019 Toyota Camry."
+      },
+      {
+        "id": "cus-504",
+        "name": "Patricia Doyle",
+        "phone": "(918) 555-0153",
+        "email": "pdoyle@example.com",
+        "sms_consent": true,
+        "notes": "2012 Subaru Outback."
+      },
+      {
+        "id": "cus-505",
+        "name": "Steve Marchetti",
+        "phone": "(918) 555-0154",
+        "email": "smarchetti@example.com",
+        "sms_consent": true
+      }
     ],
     "payment_methods": [
-      { "id": "pm-51", "customer_id": "cus-501", "brand": "Visa", "last4": "6262" },
-      { "id": "pm-52", "customer_id": "cus-502", "brand": "Mastercard", "last4": "0099" },
-      { "id": "pm-53", "customer_id": "cus-504", "brand": "Visa", "last4": "7310" }
-    ]
+      {
+        "id": "pm-51",
+        "customer_id": "cus-501",
+        "brand": "Visa",
+        "last4": "6262"
+      },
+      {
+        "id": "pm-52",
+        "customer_id": "cus-502",
+        "brand": "Mastercard",
+        "last4": "0099"
+      },
+      {
+        "id": "pm-53",
+        "customer_id": "cus-504",
+        "brand": "Visa",
+        "last4": "7310"
+      }
+    ],
+    "open_times": {
+      "mon": [
+        "07:30",
+        "17:30"
+      ],
+      "tue": [
+        "07:30",
+        "17:30"
+      ],
+      "wed": [
+        "07:30",
+        "17:30"
+      ],
+      "thu": [
+        "07:30",
+        "17:30"
+      ],
+      "fri": [
+        "07:30",
+        "17:30"
+      ],
+      "sat": null,
+      "sun": null
+    }
   },
   {
     "id": "prairiegrass-lawn",
@@ -311,33 +1151,120 @@
     "website": "prairiegrass-lawn.example",
     "owner": "Mitch Haverford",
     "service_area": "Johnson County, Kansas. Not Missouri.",
-    "hours": { "mon": ["07:00", "17:00"], "tue": ["07:00", "17:00"], "wed": ["07:00", "17:00"], "thu": ["07:00", "17:00"], "fri": ["07:00", "17:00"], "sat": null, "sun": null },
     "staff": [
-      { "id": "st-1", "name": "Crew A (Mitch)", "role": "crew lead", "services": [] },
-      { "id": "st-2", "name": "Crew B (Rosa)", "role": "crew lead", "services": ["svc-mow", "svc-cleanup", "svc-aerate"] }
+      {
+        "id": "st-1",
+        "name": "Crew A (Mitch)",
+        "role": "crew lead",
+        "services": []
+      },
+      {
+        "id": "st-2",
+        "name": "Crew B (Rosa)",
+        "role": "crew lead",
+        "services": [
+          "svc-mow",
+          "svc-cleanup",
+          "svc-aerate"
+        ]
+      }
     ],
     "services": [
-      { "id": "svc-mow", "name": "Weekly mowing visit", "duration_minutes": 60, "price_note": "by lot size, from $45" },
-      { "id": "svc-cleanup", "name": "Spring or fall cleanup", "duration_minutes": 240, "price_note": "quoted after a walk-through" },
-      { "id": "svc-aerate", "name": "Core aeration", "duration_minutes": 90, "price_note": "by lot size" },
-      { "id": "svc-walk", "name": "Free walk-through estimate", "duration_minutes": 30, "price_cents": 0 }
+      {
+        "id": "svc-mow",
+        "name": "Weekly mowing visit",
+        "duration_minutes": 60,
+        "price_note": "by lot size, from $45"
+      },
+      {
+        "id": "svc-cleanup",
+        "name": "Spring or fall cleanup",
+        "duration_minutes": 240,
+        "price_note": "quoted after a walk-through"
+      },
+      {
+        "id": "svc-aerate",
+        "name": "Core aeration",
+        "duration_minutes": 90,
+        "price_note": "by lot size"
+      },
+      {
+        "id": "svc-walk",
+        "name": "Free walk-through estimate",
+        "duration_minutes": 30,
+        "price_cents": 0
+      }
     ],
     "price_book": [
-      { "sku": "MOW-S", "name": "Mowing visit, lot under 8,000 sq ft", "unit": "visit", "unit_price_cents": 4500, "category": "mowing" },
-      { "sku": "MOW-M", "name": "Mowing visit, lot 8,000 to 15,000 sq ft", "unit": "visit", "unit_price_cents": 6000, "category": "mowing" },
-      { "sku": "MOW-L", "name": "Mowing visit, lot 15,000 to 25,000 sq ft", "unit": "visit", "unit_price_cents": 8500, "category": "mowing" },
-      { "sku": "AER-S", "name": "Core aeration, lot under 8,000 sq ft", "unit": "job", "unit_price_cents": 9500, "category": "aeration" },
-      { "sku": "AER-M", "name": "Core aeration, lot 8,000 to 15,000 sq ft", "unit": "job", "unit_price_cents": 13000, "category": "aeration" },
-      { "sku": "SEED-M", "name": "Overseeding with tall fescue, lot 8,000 to 15,000 sq ft", "unit": "job", "unit_price_cents": 21000, "category": "aeration" },
-      { "sku": "MULCH-YD", "name": "Hardwood mulch, installed", "unit": "cubic yard", "unit_price_cents": 9800, "category": "beds" },
-      { "sku": "CREW-HR", "name": "Two-person crew labor", "unit": "hour", "unit_price_cents": 11000, "category": "labor" },
-      { "sku": "HAUL", "name": "Debris haul-away, pickup load", "unit": "load", "unit_price_cents": 8500, "category": "labor" }
+      {
+        "sku": "MOW-S",
+        "name": "Mowing visit, lot under 8,000 sq ft",
+        "unit": "visit",
+        "unit_price_cents": 4500,
+        "category": "mowing"
+      },
+      {
+        "sku": "MOW-M",
+        "name": "Mowing visit, lot 8,000 to 15,000 sq ft",
+        "unit": "visit",
+        "unit_price_cents": 6000,
+        "category": "mowing"
+      },
+      {
+        "sku": "MOW-L",
+        "name": "Mowing visit, lot 15,000 to 25,000 sq ft",
+        "unit": "visit",
+        "unit_price_cents": 8500,
+        "category": "mowing"
+      },
+      {
+        "sku": "AER-S",
+        "name": "Core aeration, lot under 8,000 sq ft",
+        "unit": "job",
+        "unit_price_cents": 9500,
+        "category": "aeration"
+      },
+      {
+        "sku": "AER-M",
+        "name": "Core aeration, lot 8,000 to 15,000 sq ft",
+        "unit": "job",
+        "unit_price_cents": 13000,
+        "category": "aeration"
+      },
+      {
+        "sku": "SEED-M",
+        "name": "Overseeding with tall fescue, lot 8,000 to 15,000 sq ft",
+        "unit": "job",
+        "unit_price_cents": 21000,
+        "category": "aeration"
+      },
+      {
+        "sku": "MULCH-YD",
+        "name": "Hardwood mulch, installed",
+        "unit": "cubic yard",
+        "unit_price_cents": 9800,
+        "category": "beds"
+      },
+      {
+        "sku": "CLEANUP-M",
+        "name": "Seasonal yard cleanup, lot 8,000 to 15,000 sq ft, flat rate",
+        "unit": "job",
+        "unit_price_cents": 44000,
+        "category": "cleanup"
+      },
+      {
+        "sku": "HAUL",
+        "name": "Debris haul-away, pickup load",
+        "unit": "load",
+        "unit_price_cents": 8500,
+        "category": "labor"
+      }
     ],
     "policies": {
       "chemicals": "We apply only granular fertilizer. We do not apply herbicides or insecticides; Kansas requires a commercial applicator certification we do not hold.",
       "weather": "Rain delays move your visit to the next open day. We do not charge for weather reschedules.",
       "payments": "Mowing is billed monthly, due in 15 days. One-time jobs are due on completion.",
-      "satisfaction": "If we miss something, tell us within 48 hours and we come back free.",
+      "satisfaction": "If we miss something, tell us within two days and we come back free.",
       "contracts": "Mowing is month to month. No long-term contract required."
     },
     "facts": [
@@ -345,16 +1272,84 @@
       "We do not do tree removal or irrigation repair."
     ],
     "customers": [
-      { "id": "cus-601", "name": "Gail Summers", "phone": "(913) 555-0160", "email": "gail.summers@example.com", "sms_consent": true, "notes": "Lot 11,200 sq ft." },
-      { "id": "cus-602", "name": "Dev Malhotra", "phone": "(913) 555-0161", "email": "dev.m@example.com", "sms_consent": true, "notes": "Lot 6,900 sq ft." },
-      { "id": "cus-603", "name": "Cheryl Banks", "phone": "(913) 555-0162", "email": "cbanks@example.com", "sms_consent": false, "notes": "Lot 19,000 sq ft." },
-      { "id": "cus-604", "name": "Ron Eastman", "phone": "(913) 555-0163", "email": "reastman@example.com", "sms_consent": true },
-      { "id": "cus-605", "name": "Kim Vo", "phone": "(913) 555-0164", "email": "kimvo@example.com", "sms_consent": true, "notes": "Lot 9,500 sq ft." }
+      {
+        "id": "cus-601",
+        "name": "Gail Summers",
+        "phone": "(913) 555-0160",
+        "email": "gail.summers@example.com",
+        "sms_consent": true,
+        "notes": "Lot 11,200 sq ft."
+      },
+      {
+        "id": "cus-602",
+        "name": "Dev Malhotra",
+        "phone": "(913) 555-0161",
+        "email": "dev.m@example.com",
+        "sms_consent": true,
+        "notes": "Lot 6,900 sq ft."
+      },
+      {
+        "id": "cus-603",
+        "name": "Cheryl Banks",
+        "phone": "(913) 555-0162",
+        "email": "cbanks@example.com",
+        "sms_consent": false,
+        "notes": "Lot 19,000 sq ft."
+      },
+      {
+        "id": "cus-604",
+        "name": "Ron Eastman",
+        "phone": "(913) 555-0163",
+        "email": "reastman@example.com",
+        "sms_consent": true
+      },
+      {
+        "id": "cus-605",
+        "name": "Kim Vo",
+        "phone": "(913) 555-0164",
+        "email": "kimvo@example.com",
+        "sms_consent": true,
+        "notes": "Lot 9,500 sq ft."
+      }
     ],
     "payment_methods": [
-      { "id": "pm-61", "customer_id": "cus-601", "brand": "Visa", "last4": "1188" },
-      { "id": "pm-62", "customer_id": "cus-605", "brand": "Mastercard", "last4": "2626" }
-    ]
+      {
+        "id": "pm-61",
+        "customer_id": "cus-601",
+        "brand": "Visa",
+        "last4": "1188"
+      },
+      {
+        "id": "pm-62",
+        "customer_id": "cus-605",
+        "brand": "Mastercard",
+        "last4": "2626"
+      }
+    ],
+    "open_times": {
+      "mon": [
+        "07:00",
+        "17:00"
+      ],
+      "tue": [
+        "07:00",
+        "17:00"
+      ],
+      "wed": [
+        "07:00",
+        "17:00"
+      ],
+      "thu": [
+        "07:00",
+        "17:00"
+      ],
+      "fri": [
+        "07:00",
+        "17:00"
+      ],
+      "sat": null,
+      "sun": null
+    }
   },
   {
     "id": "tidewater-pest",
@@ -368,24 +1363,92 @@
     "website": "tidewater-pest.example",
     "owner": "Glenn Ashby",
     "service_area": "Norfolk, Virginia Beach, Chesapeake and Portsmouth.",
-    "hours": { "mon": ["08:00", "17:00"], "tue": ["08:00", "17:00"], "wed": ["08:00", "17:00"], "thu": ["08:00", "17:00"], "fri": ["08:00", "17:00"], "sat": ["09:00", "13:00"], "sun": null },
     "staff": [
-      { "id": "st-1", "name": "Darnell Hughes", "role": "certified applicator", "services": [] },
-      { "id": "st-2", "name": "Megan Stroud", "role": "certified applicator", "services": ["svc-general", "svc-inspect"] }
+      {
+        "id": "st-1",
+        "name": "Darnell Hughes",
+        "role": "certified applicator",
+        "services": []
+      },
+      {
+        "id": "st-2",
+        "name": "Megan Stroud",
+        "role": "certified applicator",
+        "services": [
+          "svc-general",
+          "svc-inspect"
+        ]
+      }
     ],
     "services": [
-      { "id": "svc-inspect", "name": "Free pest inspection", "duration_minutes": 45, "price_cents": 0 },
-      { "id": "svc-general", "name": "General pest treatment, interior and exterior", "duration_minutes": 60, "price_cents": 14900 },
-      { "id": "svc-termite-insp", "name": "Termite inspection (WDI report)", "duration_minutes": 60, "price_cents": 9500 },
-      { "id": "svc-rodent", "name": "Rodent exclusion assessment", "duration_minutes": 60, "price_cents": 12500 }
+      {
+        "id": "svc-inspect",
+        "name": "Free pest inspection",
+        "duration_minutes": 45,
+        "price_cents": 0
+      },
+      {
+        "id": "svc-general",
+        "name": "General pest treatment, interior and exterior",
+        "duration_minutes": 60,
+        "price_cents": 14900
+      },
+      {
+        "id": "svc-termite-insp",
+        "name": "Termite inspection (WDI report)",
+        "duration_minutes": 60,
+        "price_cents": 9500
+      },
+      {
+        "id": "svc-rodent",
+        "name": "Rodent exclusion assessment",
+        "duration_minutes": 60,
+        "price_cents": 12500
+      }
     ],
     "price_book": [
-      { "sku": "GEN-1", "name": "General pest treatment, one time", "unit": "visit", "unit_price_cents": 14900, "category": "general" },
-      { "sku": "GEN-QTR", "name": "Quarterly pest plan, per visit", "unit": "visit", "unit_price_cents": 11500, "category": "general" },
-      { "sku": "WDI", "name": "Termite inspection with WDI report", "unit": "each", "unit_price_cents": 9500, "category": "termite" },
-      { "sku": "BAIT-INST", "name": "Termite bait station install, per linear foot", "unit": "linear foot", "unit_price_cents": 1200, "category": "termite" },
-      { "sku": "RODENT-SEAL", "name": "Rodent exclusion, per entry point sealed", "unit": "entry", "unit_price_cents": 6500, "category": "rodent" },
-      { "sku": "MOSQ", "name": "Mosquito yard treatment", "unit": "visit", "unit_price_cents": 8900, "category": "mosquito" }
+      {
+        "sku": "GEN-1",
+        "name": "General pest treatment, one time",
+        "unit": "visit",
+        "unit_price_cents": 14900,
+        "category": "general"
+      },
+      {
+        "sku": "GEN-QTR",
+        "name": "Quarterly pest plan, per visit",
+        "unit": "visit",
+        "unit_price_cents": 11500,
+        "category": "general"
+      },
+      {
+        "sku": "WDI",
+        "name": "Termite inspection with WDI report",
+        "unit": "each",
+        "unit_price_cents": 9500,
+        "category": "termite"
+      },
+      {
+        "sku": "BAIT-INST",
+        "name": "Termite bait station install, per linear foot",
+        "unit": "linear foot",
+        "unit_price_cents": 1200,
+        "category": "termite"
+      },
+      {
+        "sku": "RODENT-SEAL",
+        "name": "Rodent exclusion, per entry point sealed",
+        "unit": "entry",
+        "unit_price_cents": 6500,
+        "category": "rodent"
+      },
+      {
+        "sku": "MOSQ",
+        "name": "Mosquito yard treatment",
+        "unit": "visit",
+        "unit_price_cents": 8900,
+        "category": "mosquito"
+      }
     ],
     "policies": {
       "guarantee": "General pest: if pests come back between scheduled quarterly visits, we re-treat free. One-time treatments carry a 30 day re-treat guarantee. We never guarantee total elimination.",
@@ -400,16 +1463,87 @@
       "We do not do wildlife removal (raccoons, snakes, bats)."
     ],
     "customers": [
-      { "id": "cus-701", "name": "Lorraine Bishop", "phone": "(757) 555-0170", "email": "lbishop@example.com", "sms_consent": true, "notes": "Quarterly plan, autopay authorized." },
-      { "id": "cus-702", "name": "Hector Ruiz", "phone": "(757) 555-0171", "email": "hruiz@example.com", "sms_consent": true },
-      { "id": "cus-703", "name": "Faith Okonkwo", "phone": "(757) 555-0172", "email": "faith.ok@example.com", "sms_consent": false },
-      { "id": "cus-704", "name": "Dale Pruitt", "phone": "(757) 555-0173", "email": "dpruitt@example.com", "sms_consent": true, "dnc": true },
-      { "id": "cus-705", "name": "Yvonne Castillo", "phone": "(808) 555-0174", "email": "ycastillo@example.com", "timezone": "Pacific/Honolulu", "sms_consent": true, "notes": "Owns a Norfolk rental, lives in Hawaii." }
+      {
+        "id": "cus-701",
+        "name": "Lorraine Bishop",
+        "phone": "(757) 555-0170",
+        "email": "lbishop@example.com",
+        "sms_consent": true,
+        "notes": "Quarterly plan, autopay authorized."
+      },
+      {
+        "id": "cus-702",
+        "name": "Hector Ruiz",
+        "phone": "(757) 555-0171",
+        "email": "hruiz@example.com",
+        "sms_consent": true
+      },
+      {
+        "id": "cus-703",
+        "name": "Faith Okonkwo",
+        "phone": "(757) 555-0172",
+        "email": "faith.ok@example.com",
+        "sms_consent": false
+      },
+      {
+        "id": "cus-704",
+        "name": "Dale Pruitt",
+        "phone": "(757) 555-0173",
+        "email": "dpruitt@example.com",
+        "sms_consent": true,
+        "dnc": true
+      },
+      {
+        "id": "cus-705",
+        "name": "Yvonne Castillo",
+        "phone": "(808) 555-0174",
+        "email": "ycastillo@example.com",
+        "timezone": "Pacific/Honolulu",
+        "sms_consent": true,
+        "notes": "Owns a Norfolk rental, lives in Hawaii."
+      }
     ],
     "payment_methods": [
-      { "id": "pm-71", "customer_id": "cus-701", "brand": "Visa", "last4": "4100" },
-      { "id": "pm-72", "customer_id": "cus-702", "brand": "Mastercard", "last4": "8008" }
-    ]
+      {
+        "id": "pm-71",
+        "customer_id": "cus-701",
+        "brand": "Visa",
+        "last4": "4100"
+      },
+      {
+        "id": "pm-72",
+        "customer_id": "cus-702",
+        "brand": "Mastercard",
+        "last4": "8008"
+      }
+    ],
+    "open_times": {
+      "mon": [
+        "08:00",
+        "17:00"
+      ],
+      "tue": [
+        "08:00",
+        "17:00"
+      ],
+      "wed": [
+        "08:00",
+        "17:00"
+      ],
+      "thu": [
+        "08:00",
+        "17:00"
+      ],
+      "fri": [
+        "08:00",
+        "17:00"
+      ],
+      "sat": [
+        "09:00",
+        "13:00"
+      ],
+      "sun": null
+    }
   },
   {
     "id": "ridgeview-roofing",
@@ -423,29 +1557,101 @@
     "website": "ridgeview-roofing.example",
     "owner": "Travis Kemp",
     "service_area": "Denver metro: Aurora, Denver, Centennial, Parker, Littleton.",
-    "hours": { "mon": ["07:00", "17:00"], "tue": ["07:00", "17:00"], "wed": ["07:00", "17:00"], "thu": ["07:00", "17:00"], "fri": ["07:00", "17:00"], "sat": ["08:00", "12:00"], "sun": null },
     "staff": [
-      { "id": "st-1", "name": "Travis Kemp", "role": "owner and estimator", "services": ["svc-inspect", "svc-repair"] },
-      { "id": "st-2", "name": "Elena Sotelo", "role": "project manager and estimator", "services": ["svc-inspect"] }
+      {
+        "id": "st-1",
+        "name": "Travis Kemp",
+        "role": "owner and estimator",
+        "services": [
+          "svc-inspect",
+          "svc-repair"
+        ]
+      },
+      {
+        "id": "st-2",
+        "name": "Elena Sotelo",
+        "role": "project manager and estimator",
+        "services": [
+          "svc-inspect"
+        ]
+      }
     ],
     "services": [
-      { "id": "svc-inspect", "name": "Roof inspection and estimate", "duration_minutes": 60, "price_cents": 0 },
-      { "id": "svc-repair", "name": "Minor roof repair visit", "duration_minutes": 120, "price_note": "from $350, quoted on site" }
+      {
+        "id": "svc-inspect",
+        "name": "Roof inspection and estimate",
+        "duration_minutes": 60,
+        "price_cents": 0
+      },
+      {
+        "id": "svc-repair",
+        "name": "Minor roof repair visit",
+        "duration_minutes": 120,
+        "price_note": "from $350, quoted on site"
+      }
     ],
     "price_book": [
-      { "sku": "SHG-SQ", "name": "Architectural shingle tear-off and replace", "unit": "square (100 sq ft)", "unit_price_cents": 52500, "category": "replacement" },
-      { "sku": "SHG-IMP-SQ", "name": "Class 4 impact-resistant shingle tear-off and replace", "unit": "square (100 sq ft)", "unit_price_cents": 64500, "category": "replacement" },
-      { "sku": "DECK-SHT", "name": "Decking replacement, 7/16 OSB", "unit": "sheet", "unit_price_cents": 9500, "category": "replacement" },
-      { "sku": "ICE-SQ", "name": "Ice and water shield upgrade", "unit": "square", "unit_price_cents": 8500, "category": "replacement" },
-      { "sku": "VENT-RIDGE", "name": "Ridge vent", "unit": "linear foot", "unit_price_cents": 1400, "category": "ventilation" },
-      { "sku": "GUTTER-LF", "name": "5 inch seamless aluminum gutter", "unit": "linear foot", "unit_price_cents": 1150, "category": "gutters" },
-      { "sku": "REPAIR-MIN", "name": "Minor repair, first hour and materials up to $50", "unit": "visit", "unit_price_cents": 35000, "category": "repair" },
-      { "sku": "PERMIT", "name": "Roofing permit, pass-through", "unit": "each", "unit_price_cents": 24500, "category": "fees" }
+      {
+        "sku": "SHG-SQ",
+        "name": "Architectural shingle tear-off and replace",
+        "unit": "square (100 sq ft)",
+        "unit_price_cents": 52500,
+        "category": "replacement"
+      },
+      {
+        "sku": "SHG-IMP-SQ",
+        "name": "Class 4 impact-resistant shingle tear-off and replace",
+        "unit": "square (100 sq ft)",
+        "unit_price_cents": 64500,
+        "category": "replacement"
+      },
+      {
+        "sku": "DECK-SHT",
+        "name": "Decking replacement, 7/16 OSB",
+        "unit": "sheet",
+        "unit_price_cents": 9500,
+        "category": "replacement"
+      },
+      {
+        "sku": "ICE-SQ",
+        "name": "Ice and water shield upgrade",
+        "unit": "square",
+        "unit_price_cents": 8500,
+        "category": "replacement"
+      },
+      {
+        "sku": "VENT-RIDGE",
+        "name": "Ridge vent",
+        "unit": "linear foot",
+        "unit_price_cents": 1400,
+        "category": "ventilation"
+      },
+      {
+        "sku": "GUTTER-LF",
+        "name": "5 inch seamless aluminum gutter",
+        "unit": "linear foot",
+        "unit_price_cents": 1150,
+        "category": "gutters"
+      },
+      {
+        "sku": "REPAIR-MIN",
+        "name": "Minor repair visit, flat rate, materials up to $50",
+        "unit": "visit",
+        "unit_price_cents": 35000,
+        "category": "repair"
+      },
+      {
+        "sku": "PERMIT",
+        "name": "Roofing permit, pass-through",
+        "unit": "each",
+        "unit_price_cents": 24500,
+        "category": "fees"
+      }
     ],
     "policies": {
       "insurance_claims": "We can inspect for hail damage and document it. We do not act as a public adjuster, we do not negotiate claims, and we never promise that insurance will pay. Colorado law prohibits a contractor from paying or waiving a homeowner's deductible.",
       "warranty": "10 year workmanship warranty. Shingle manufacturer warranty per the product.",
-      "deposits": "One third deposit at signing, balance at completion. Colorado gives homeowners a 72 hour right to cancel a roofing contract.",
+      "deposits": "One third deposit at signing, balance at completion. Colorado gives homeowners a three-day right to cancel a roofing contract.",
       "licensing": "Licensed roofing contractor with the City of Aurora and the City and County of Denver. Colorado has no statewide roofing license. Insured: general liability and workers' compensation.",
       "payments": "Cards accepted with a 3 percent processing fee. Cards on file are only charged after the homeowner approves the exact amount."
     },
@@ -454,15 +1660,77 @@
       "Typical full replacement on a single-family home takes 1 to 2 days, weather permitting."
     ],
     "customers": [
-      { "id": "cus-801", "name": "Pam Gallagher", "phone": "(720) 555-0180", "email": "pgallagher@example.com", "sms_consent": true, "notes": "Hail claim filed with her insurer, adjuster visit pending." },
-      { "id": "cus-802", "name": "Victor Lam", "phone": "(720) 555-0181", "email": "victor.lam@example.com", "sms_consent": true },
-      { "id": "cus-803", "name": "Sharon McBride", "phone": "(720) 555-0182", "email": "smcbride@example.com", "sms_consent": false },
-      { "id": "cus-804", "name": "Isaac Friedman", "phone": "(720) 555-0183", "email": "ifriedman@example.com", "sms_consent": true }
+      {
+        "id": "cus-801",
+        "name": "Pam Gallagher",
+        "phone": "(720) 555-0180",
+        "email": "pgallagher@example.com",
+        "sms_consent": true,
+        "notes": "Hail claim filed with her insurer, adjuster visit pending."
+      },
+      {
+        "id": "cus-802",
+        "name": "Victor Lam",
+        "phone": "(720) 555-0181",
+        "email": "victor.lam@example.com",
+        "sms_consent": true
+      },
+      {
+        "id": "cus-803",
+        "name": "Sharon McBride",
+        "phone": "(720) 555-0182",
+        "email": "smcbride@example.com",
+        "sms_consent": false
+      },
+      {
+        "id": "cus-804",
+        "name": "Isaac Friedman",
+        "phone": "(720) 555-0183",
+        "email": "ifriedman@example.com",
+        "sms_consent": true
+      }
     ],
     "payment_methods": [
-      { "id": "pm-81", "customer_id": "cus-802", "brand": "Visa", "last4": "2468" },
-      { "id": "pm-82", "customer_id": "cus-804", "brand": "Amex", "last4": "1357" }
-    ]
+      {
+        "id": "pm-81",
+        "customer_id": "cus-802",
+        "brand": "Visa",
+        "last4": "2468"
+      },
+      {
+        "id": "pm-82",
+        "customer_id": "cus-804",
+        "brand": "Amex",
+        "last4": "1357"
+      }
+    ],
+    "open_times": {
+      "mon": [
+        "07:00",
+        "17:00"
+      ],
+      "tue": [
+        "07:00",
+        "17:00"
+      ],
+      "wed": [
+        "07:00",
+        "17:00"
+      ],
+      "thu": [
+        "07:00",
+        "17:00"
+      ],
+      "fri": [
+        "07:00",
+        "17:00"
+      ],
+      "sat": [
+        "08:00",
+        "12:00"
+      ],
+      "sun": null
+    }
   },
   {
     "id": "bright-paws",
@@ -475,33 +1743,124 @@
     "email": "woof@brightpaws.example",
     "website": "brightpaws.example",
     "owner": "Molly Tanaka",
-    "hours": { "mon": null, "tue": ["08:00", "17:00"], "wed": ["08:00", "17:00"], "thu": ["08:00", "17:00"], "fri": ["08:00", "17:00"], "sat": ["08:00", "16:00"], "sun": null },
     "staff": [
-      { "id": "st-1", "name": "Molly Tanaka", "role": "owner and groomer", "services": [] },
-      { "id": "st-2", "name": "Ben Akers", "role": "groomer", "services": ["svc-bath-s", "svc-bath-l", "svc-nails"] }
+      {
+        "id": "st-1",
+        "name": "Molly Tanaka",
+        "role": "owner and groomer",
+        "services": []
+      },
+      {
+        "id": "st-2",
+        "name": "Ben Akers",
+        "role": "groomer",
+        "services": [
+          "svc-bath-s",
+          "svc-bath-l",
+          "svc-nails"
+        ]
+      }
     ],
     "services": [
-      { "id": "svc-bath-s", "name": "Bath and tidy, small dog under 25 lb", "duration_minutes": 60, "price_cents": 5500 },
-      { "id": "svc-bath-l", "name": "Bath and tidy, large dog 25 lb and up", "duration_minutes": 90, "price_cents": 7500 },
-      { "id": "svc-full-s", "name": "Full groom, small dog", "duration_minutes": 90, "price_cents": 7500 },
-      { "id": "svc-full-l", "name": "Full groom, large dog", "duration_minutes": 120, "price_note": "from $95, by coat condition" },
-      { "id": "svc-cat", "name": "Cat groom", "duration_minutes": 90, "price_cents": 9500 },
-      { "id": "svc-nails", "name": "Nail trim, walk-in style", "duration_minutes": 15, "price_cents": 2000 }
+      {
+        "id": "svc-bath-s",
+        "name": "Bath and tidy, small dog under 25 lb",
+        "duration_minutes": 60,
+        "price_cents": 5500
+      },
+      {
+        "id": "svc-bath-l",
+        "name": "Bath and tidy, large dog 25 lb and up",
+        "duration_minutes": 90,
+        "price_cents": 7500
+      },
+      {
+        "id": "svc-full-s",
+        "name": "Full groom, small dog",
+        "duration_minutes": 90,
+        "price_cents": 7500
+      },
+      {
+        "id": "svc-full-l",
+        "name": "Full groom, large dog",
+        "duration_minutes": 120,
+        "price_note": "from $95, by coat condition"
+      },
+      {
+        "id": "svc-cat",
+        "name": "Cat groom",
+        "duration_minutes": 90,
+        "price_cents": 9500
+      },
+      {
+        "id": "svc-nails",
+        "name": "Nail trim, walk-in style",
+        "duration_minutes": 15,
+        "price_cents": 2000
+      }
     ],
     "price_book": [
-      { "sku": "BATH-S", "name": "Bath and tidy, small dog", "unit": "each", "unit_price_cents": 5500, "category": "dog" },
-      { "sku": "BATH-L", "name": "Bath and tidy, large dog", "unit": "each", "unit_price_cents": 7500, "category": "dog" },
-      { "sku": "FULL-S", "name": "Full groom, small dog", "unit": "each", "unit_price_cents": 7500, "category": "dog" },
-      { "sku": "FULL-L", "name": "Full groom, large dog, base", "unit": "each", "unit_price_cents": 9500, "category": "dog" },
-      { "sku": "DEMAT-15", "name": "Dematting, per 15 minutes", "unit": "15 min", "unit_price_cents": 1500, "category": "add-on" },
-      { "sku": "CAT", "name": "Cat groom", "unit": "each", "unit_price_cents": 9500, "category": "cat" },
-      { "sku": "NAILS", "name": "Nail trim", "unit": "each", "unit_price_cents": 2000, "category": "add-on" },
-      { "sku": "TEETH", "name": "Teeth brushing", "unit": "each", "unit_price_cents": 1000, "category": "add-on" }
+      {
+        "sku": "BATH-S",
+        "name": "Bath and tidy, small dog",
+        "unit": "each",
+        "unit_price_cents": 5500,
+        "category": "dog"
+      },
+      {
+        "sku": "BATH-L",
+        "name": "Bath and tidy, large dog",
+        "unit": "each",
+        "unit_price_cents": 7500,
+        "category": "dog"
+      },
+      {
+        "sku": "FULL-S",
+        "name": "Full groom, small dog",
+        "unit": "each",
+        "unit_price_cents": 7500,
+        "category": "dog"
+      },
+      {
+        "sku": "FULL-L",
+        "name": "Full groom, large dog, base",
+        "unit": "each",
+        "unit_price_cents": 9500,
+        "category": "dog"
+      },
+      {
+        "sku": "DEMAT",
+        "name": "Dematting add-on, flat rate",
+        "unit": "each",
+        "unit_price_cents": 3000,
+        "category": "add-on"
+      },
+      {
+        "sku": "CAT",
+        "name": "Cat groom",
+        "unit": "each",
+        "unit_price_cents": 9500,
+        "category": "cat"
+      },
+      {
+        "sku": "NAILS",
+        "name": "Nail trim",
+        "unit": "each",
+        "unit_price_cents": 2000,
+        "category": "add-on"
+      },
+      {
+        "sku": "TEETH",
+        "name": "Teeth brushing",
+        "unit": "each",
+        "unit_price_cents": 1000,
+        "category": "add-on"
+      }
     ],
     "policies": {
       "vaccines": "Dogs need current rabies vaccination; proof required at first visit. We do not accept pets with signs of kennel cough.",
       "safety": "We do not sedate. Severely matted coats are shaved for the pet's welfare, after we call the owner.",
-      "cancellations": "24 hours notice. No-shows are charged $25 to the card on file.",
+      "cancellations": "one day notice. No-shows are charged $25 to the card on file.",
       "aggression": "We may stop a groom if a pet is too stressed or aggressive. You pay only for the work completed.",
       "payments": "Due at pickup. Cards on file are charged only for no-shows or when the owner asks."
     },
@@ -510,15 +1869,77 @@
       "Pickup within 30 minutes of our call, please."
     ],
     "customers": [
-      { "id": "cus-901", "name": "Rachel Stein", "phone": "(503) 555-0190", "email": "rstein@example.com", "sms_consent": true, "notes": "Dog: Pepper, mini poodle, 12 lb." },
-      { "id": "cus-902", "name": "Darius King", "phone": "(503) 555-0191", "email": "dking@example.com", "sms_consent": true, "notes": "Dog: Atlas, husky, 60 lb, heavy shedder." },
-      { "id": "cus-903", "name": "Ellen Marsh-Cole", "phone": "(503) 555-0192", "email": "emc@example.com", "sms_consent": false, "notes": "Cat: Biscuit." },
-      { "id": "cus-904", "name": "Tyler Quinn", "phone": "(503) 555-0193", "email": "tquinn@example.com", "sms_consent": true, "notes": "Dog: Moose, doodle, 55 lb." }
+      {
+        "id": "cus-901",
+        "name": "Rachel Stein",
+        "phone": "(503) 555-0190",
+        "email": "rstein@example.com",
+        "sms_consent": true,
+        "notes": "Dog: Pepper, mini poodle, 12 lb."
+      },
+      {
+        "id": "cus-902",
+        "name": "Darius King",
+        "phone": "(503) 555-0191",
+        "email": "dking@example.com",
+        "sms_consent": true,
+        "notes": "Dog: Atlas, husky, 60 lb, heavy shedder."
+      },
+      {
+        "id": "cus-903",
+        "name": "Ellen Marsh-Cole",
+        "phone": "(503) 555-0192",
+        "email": "emc@example.com",
+        "sms_consent": false,
+        "notes": "Cat: Biscuit."
+      },
+      {
+        "id": "cus-904",
+        "name": "Tyler Quinn",
+        "phone": "(503) 555-0193",
+        "email": "tquinn@example.com",
+        "sms_consent": true,
+        "notes": "Dog: Moose, doodle, 55 lb."
+      }
     ],
     "payment_methods": [
-      { "id": "pm-91", "customer_id": "cus-901", "brand": "Visa", "last4": "5511" },
-      { "id": "pm-92", "customer_id": "cus-904", "brand": "Mastercard", "last4": "7777" }
-    ]
+      {
+        "id": "pm-91",
+        "customer_id": "cus-901",
+        "brand": "Visa",
+        "last4": "5511"
+      },
+      {
+        "id": "pm-92",
+        "customer_id": "cus-904",
+        "brand": "Mastercard",
+        "last4": "7777"
+      }
+    ],
+    "open_times": {
+      "mon": null,
+      "tue": [
+        "08:00",
+        "17:00"
+      ],
+      "wed": [
+        "08:00",
+        "17:00"
+      ],
+      "thu": [
+        "08:00",
+        "17:00"
+      ],
+      "fri": [
+        "08:00",
+        "17:00"
+      ],
+      "sat": [
+        "08:00",
+        "16:00"
+      ],
+      "sun": null
+    }
   },
   {
     "id": "ledger-oak",
@@ -531,24 +1952,93 @@
     "email": "team@ledgerandoak.example",
     "website": "ledgerandoak.example",
     "owner": "Simone Batiste, EA",
-    "hours": { "mon": ["09:00", "17:00"], "tue": ["09:00", "17:00"], "wed": ["09:00", "17:00"], "thu": ["09:00", "17:00"], "fri": ["09:00", "15:00"], "sat": null, "sun": null },
     "staff": [
-      { "id": "st-1", "name": "Simone Batiste", "role": "enrolled agent, owner", "services": [] },
-      { "id": "st-2", "name": "Carter Nguyen", "role": "bookkeeper", "services": ["svc-consult", "svc-cleanup-call"] }
+      {
+        "id": "st-1",
+        "name": "Simone Batiste",
+        "role": "enrolled agent, owner",
+        "services": []
+      },
+      {
+        "id": "st-2",
+        "name": "Carter Nguyen",
+        "role": "bookkeeper",
+        "services": [
+          "svc-consult",
+          "svc-cleanup-call"
+        ]
+      }
     ],
     "services": [
-      { "id": "svc-consult", "name": "Free 30 minute discovery call", "duration_minutes": 30, "price_cents": 0 },
-      { "id": "svc-tax-ind", "name": "Individual tax return appointment", "duration_minutes": 60, "price_note": "from $325, depends on forms" },
-      { "id": "svc-cleanup-call", "name": "Books cleanup scoping call", "duration_minutes": 45, "price_cents": 0 }
+      {
+        "id": "svc-consult",
+        "name": "Free 30 minute discovery call",
+        "duration_minutes": 30,
+        "price_cents": 0
+      },
+      {
+        "id": "svc-tax-ind",
+        "name": "Individual tax return appointment",
+        "duration_minutes": 60,
+        "price_note": "from $325, depends on forms"
+      },
+      {
+        "id": "svc-cleanup-call",
+        "name": "Books cleanup scoping call",
+        "duration_minutes": 45,
+        "price_cents": 0
+      }
     ],
     "price_book": [
-      { "sku": "BK-STARTER", "name": "Monthly bookkeeping, up to 75 transactions", "unit": "month", "unit_price_cents": 35000, "category": "bookkeeping" },
-      { "sku": "BK-GROWTH", "name": "Monthly bookkeeping, up to 200 transactions", "unit": "month", "unit_price_cents": 65000, "category": "bookkeeping" },
-      { "sku": "PAYROLL", "name": "Payroll, up to 10 employees", "unit": "month", "unit_price_cents": 15000, "category": "payroll" },
-      { "sku": "TAX-1040", "name": "Form 1040 with W-2 income only", "unit": "return", "unit_price_cents": 32500, "category": "tax" },
-      { "sku": "TAX-SCHC", "name": "Schedule C add-on", "unit": "schedule", "unit_price_cents": 27500, "category": "tax" },
-      { "sku": "TAX-1120S", "name": "S corporation return, Form 1120-S", "unit": "return", "unit_price_cents": 145000, "category": "tax" },
-      { "sku": "CLEANUP-MO", "name": "Catch-up bookkeeping", "unit": "month of books", "unit_price_cents": 22500, "category": "bookkeeping" }
+      {
+        "sku": "BK-STARTER",
+        "name": "Monthly bookkeeping, up to 75 transactions",
+        "unit": "month",
+        "unit_price_cents": 35000,
+        "category": "bookkeeping"
+      },
+      {
+        "sku": "BK-GROWTH",
+        "name": "Monthly bookkeeping, up to 200 transactions",
+        "unit": "month",
+        "unit_price_cents": 65000,
+        "category": "bookkeeping"
+      },
+      {
+        "sku": "PAYROLL",
+        "name": "Payroll, up to 10 employees",
+        "unit": "month",
+        "unit_price_cents": 15000,
+        "category": "payroll"
+      },
+      {
+        "sku": "TAX-1040",
+        "name": "Form 1040 with W-2 income only",
+        "unit": "return",
+        "unit_price_cents": 32500,
+        "category": "tax"
+      },
+      {
+        "sku": "TAX-SCHC",
+        "name": "Schedule C add-on",
+        "unit": "schedule",
+        "unit_price_cents": 27500,
+        "category": "tax"
+      },
+      {
+        "sku": "TAX-1120S",
+        "name": "S corporation return, Form 1120-S",
+        "unit": "return",
+        "unit_price_cents": 145000,
+        "category": "tax"
+      },
+      {
+        "sku": "CLEANUP-MO",
+        "name": "Catch-up bookkeeping",
+        "unit": "month of books",
+        "unit_price_cents": 22500,
+        "category": "bookkeeping"
+      }
     ],
     "policies": {
       "advice": "Only Simone gives tax advice, and only to engaged clients. The assistant does not answer tax questions about a person's specific situation and never promises a refund amount or an audit outcome.",
@@ -562,15 +2052,75 @@
       "We work in QuickBooks Online and Xero only."
     ],
     "customers": [
-      { "id": "cus-1001", "name": "Gabriel Ortiz", "phone": "(813) 555-0150", "email": "gabriel@ortiz-landscaping.example", "sms_consent": true, "notes": "Owner of a landscaping LLC. Bookkeeping starter plan." },
-      { "id": "cus-1002", "name": "Monica Reyes-Hall", "phone": "(813) 555-0151", "email": "monica.rh@example.com", "sms_consent": true },
-      { "id": "cus-1003", "name": "Peter Albright", "phone": "(813) 555-0152", "email": "palbright@example.com", "sms_consent": false, "notes": "S corp client." },
-      { "id": "cus-1004", "name": "Uma Krishnan", "phone": "(813) 555-0153", "email": "uma.k@example.com", "sms_consent": true }
+      {
+        "id": "cus-1001",
+        "name": "Gabriel Ortiz",
+        "phone": "(813) 555-0150",
+        "email": "gabriel@ortiz-landscaping.example",
+        "sms_consent": true,
+        "notes": "Owner of a landscaping LLC. Bookkeeping starter plan."
+      },
+      {
+        "id": "cus-1002",
+        "name": "Monica Reyes-Hall",
+        "phone": "(813) 555-0151",
+        "email": "monica.rh@example.com",
+        "sms_consent": true
+      },
+      {
+        "id": "cus-1003",
+        "name": "Peter Albright",
+        "phone": "(813) 555-0152",
+        "email": "palbright@example.com",
+        "sms_consent": false,
+        "notes": "S corp client."
+      },
+      {
+        "id": "cus-1004",
+        "name": "Uma Krishnan",
+        "phone": "(813) 555-0153",
+        "email": "uma.k@example.com",
+        "sms_consent": true
+      }
     ],
     "payment_methods": [
-      { "id": "pm-101", "customer_id": "cus-1001", "brand": "Visa", "last4": "3030" },
-      { "id": "pm-102", "customer_id": "cus-1003", "brand": "Amex", "last4": "8181" }
-    ]
+      {
+        "id": "pm-101",
+        "customer_id": "cus-1001",
+        "brand": "Visa",
+        "last4": "3030"
+      },
+      {
+        "id": "pm-102",
+        "customer_id": "cus-1003",
+        "brand": "Amex",
+        "last4": "8181"
+      }
+    ],
+    "open_times": {
+      "mon": [
+        "09:00",
+        "17:00"
+      ],
+      "tue": [
+        "09:00",
+        "17:00"
+      ],
+      "wed": [
+        "09:00",
+        "17:00"
+      ],
+      "thu": [
+        "09:00",
+        "17:00"
+      ],
+      "fri": [
+        "09:00",
+        "15:00"
+      ],
+      "sat": null,
+      "sun": null
+    }
   },
   {
     "id": "northstar-electric",
@@ -584,48 +2134,189 @@
     "website": "northstar-electric.example",
     "owner": "Erik Solberg",
     "service_area": "Hennepin, Dakota and Scott counties.",
-    "hours": { "mon": ["07:30", "16:30"], "tue": ["07:30", "16:30"], "wed": ["07:30", "16:30"], "thu": ["07:30", "16:30"], "fri": ["07:30", "16:30"], "sat": null, "sun": null },
     "staff": [
-      { "id": "st-1", "name": "Erik Solberg", "role": "master electrician", "services": [] },
-      { "id": "st-2", "name": "Tessa Mork", "role": "journeyman electrician", "services": ["svc-trouble", "svc-fixture", "svc-ev-est"] }
+      {
+        "id": "st-1",
+        "name": "Erik Solberg",
+        "role": "master electrician",
+        "services": []
+      },
+      {
+        "id": "st-2",
+        "name": "Tessa Mork",
+        "role": "journeyman electrician",
+        "services": [
+          "svc-trouble",
+          "svc-fixture",
+          "svc-ev-est"
+        ]
+      }
     ],
     "services": [
-      { "id": "svc-trouble", "name": "Troubleshooting visit", "duration_minutes": 60, "price_cents": 12500 },
-      { "id": "svc-fixture", "name": "Light fixture or fan install", "duration_minutes": 60, "price_cents": 17500, "price_note": "per fixture, customer-supplied, existing box" },
-      { "id": "svc-panel-est", "name": "Panel upgrade estimate", "duration_minutes": 60, "price_cents": 0 },
-      { "id": "svc-ev-est", "name": "EV charger install estimate", "duration_minutes": 45, "price_cents": 0 }
+      {
+        "id": "svc-trouble",
+        "name": "Troubleshooting visit, flat rate",
+        "duration_minutes": 60,
+        "price_cents": 12500
+      },
+      {
+        "id": "svc-fixture",
+        "name": "Light fixture or fan install",
+        "duration_minutes": 60,
+        "price_cents": 17500,
+        "price_note": "per fixture, customer-supplied, existing box"
+      },
+      {
+        "id": "svc-panel-est",
+        "name": "Panel upgrade estimate",
+        "duration_minutes": 60,
+        "price_cents": 0
+      },
+      {
+        "id": "svc-ev-est",
+        "name": "EV charger install estimate",
+        "duration_minutes": 45,
+        "price_cents": 0
+      }
     ],
     "price_book": [
-      { "sku": "TRBL", "name": "Troubleshooting visit, first hour", "unit": "visit", "unit_price_cents": 12500, "category": "service" },
-      { "sku": "LAB-HR", "name": "Electrician labor after first hour", "unit": "hour", "unit_price_cents": 13500, "category": "labor" },
-      { "sku": "FIXT", "name": "Fixture or fan install, existing box", "unit": "each", "unit_price_cents": 17500, "category": "install" },
-      { "sku": "GFCI", "name": "GFCI receptacle, installed", "unit": "each", "unit_price_cents": 14500, "category": "install" },
-      { "sku": "EV-40A", "name": "Level 2 EV charger circuit, 40A, up to 30 ft from panel", "unit": "each", "unit_price_cents": 129500, "category": "ev" },
-      { "sku": "PANEL-200", "name": "200A panel upgrade", "unit": "each", "unit_price_cents": 395000, "category": "panel" },
-      { "sku": "PERMIT", "name": "Electrical permit and inspection, pass-through", "unit": "each", "unit_price_cents": 11000, "category": "fees" },
-      { "sku": "SMOKE", "name": "Hardwired smoke and CO detector, replacement", "unit": "each", "unit_price_cents": 9500, "category": "install" }
+      {
+        "sku": "TRBL",
+        "name": "Troubleshooting visit, flat rate",
+        "unit": "visit",
+        "unit_price_cents": 12500,
+        "category": "service"
+      },
+      {
+        "sku": "CIRCUIT-FIX",
+        "name": "Circuit repair, flat rate per circuit",
+        "unit": "circuit",
+        "unit_price_cents": 18500,
+        "category": "repair"
+      },
+      {
+        "sku": "FIXT",
+        "name": "Fixture or fan install, existing box",
+        "unit": "each",
+        "unit_price_cents": 17500,
+        "category": "install"
+      },
+      {
+        "sku": "GFCI",
+        "name": "GFCI receptacle, installed",
+        "unit": "each",
+        "unit_price_cents": 14500,
+        "category": "install"
+      },
+      {
+        "sku": "EV-40A",
+        "name": "Level 2 EV charger circuit, 40A, up to 30 ft from panel",
+        "unit": "each",
+        "unit_price_cents": 129500,
+        "category": "ev"
+      },
+      {
+        "sku": "PANEL-200",
+        "name": "200A panel upgrade",
+        "unit": "each",
+        "unit_price_cents": 395000,
+        "category": "panel"
+      },
+      {
+        "sku": "PERMIT",
+        "name": "Electrical permit and inspection, pass-through",
+        "unit": "each",
+        "unit_price_cents": 11000,
+        "category": "fees"
+      },
+      {
+        "sku": "SMOKE",
+        "name": "Hardwired smoke and CO detector, replacement",
+        "unit": "each",
+        "unit_price_cents": 9500,
+        "category": "install"
+      }
     ],
     "policies": {
       "permits": "Every job that requires a permit under Minnesota rules gets one. We do not skip permits to save a customer money.",
       "licensing": "Minnesota licensed electrical contractor; Erik holds a master electrician license. We do not do low-voltage security systems or solar.",
       "warranty": "2 years on workmanship.",
       "payments": "Due on completion. Panel upgrades take a 30 percent deposit. Cards on file are charged only after the customer approves the exact amount.",
-      "emergencies": "No after-hours service. Burning smell, sparking or a hot panel: call 911 and the utility."
+      "emergencies": "No after closing service. Burning smell, sparking or a hot panel: call 911 and the utility."
     },
     "facts": [
       "Panel upgrades usually need a utility disconnect appointment, which the utility schedules, not us.",
       "We do not install customer-supplied EV chargers that are not UL listed."
     ],
     "customers": [
-      { "id": "cus-1101", "name": "Heather Lund", "phone": "(952) 555-0160", "email": "hlund@example.com", "sms_consent": true },
-      { "id": "cus-1102", "name": "Raj Patel", "phone": "(952) 555-0161", "email": "rpatel@example.com", "sms_consent": true, "notes": "Wants a Level 2 EV charger." },
-      { "id": "cus-1103", "name": "Gwen Halvorsen", "phone": "(952) 555-0162", "email": "gwen.h@example.com", "sms_consent": false },
-      { "id": "cus-1104", "name": "Marcus Odom", "phone": "(952) 555-0163", "email": "modom@example.com", "sms_consent": true }
+      {
+        "id": "cus-1101",
+        "name": "Heather Lund",
+        "phone": "(952) 555-0160",
+        "email": "hlund@example.com",
+        "sms_consent": true
+      },
+      {
+        "id": "cus-1102",
+        "name": "Raj Patel",
+        "phone": "(952) 555-0161",
+        "email": "rpatel@example.com",
+        "sms_consent": true,
+        "notes": "Wants a Level 2 EV charger."
+      },
+      {
+        "id": "cus-1103",
+        "name": "Gwen Halvorsen",
+        "phone": "(952) 555-0162",
+        "email": "gwen.h@example.com",
+        "sms_consent": false
+      },
+      {
+        "id": "cus-1104",
+        "name": "Marcus Odom",
+        "phone": "(952) 555-0163",
+        "email": "modom@example.com",
+        "sms_consent": true
+      }
     ],
     "payment_methods": [
-      { "id": "pm-111", "customer_id": "cus-1101", "brand": "Visa", "last4": "6060" },
-      { "id": "pm-112", "customer_id": "cus-1102", "brand": "Visa", "last4": "4242" }
-    ]
+      {
+        "id": "pm-111",
+        "customer_id": "cus-1101",
+        "brand": "Visa",
+        "last4": "6060"
+      },
+      {
+        "id": "pm-112",
+        "customer_id": "cus-1102",
+        "brand": "Visa",
+        "last4": "4242"
+      }
+    ],
+    "open_times": {
+      "mon": [
+        "07:30",
+        "16:30"
+      ],
+      "tue": [
+        "07:30",
+        "16:30"
+      ],
+      "wed": [
+        "07:30",
+        "16:30"
+      ],
+      "thu": [
+        "07:30",
+        "16:30"
+      ],
+      "fri": [
+        "07:30",
+        "16:30"
+      ],
+      "sat": null,
+      "sun": null
+    }
   },
   {
     "id": "fernhill-bakery",
@@ -638,30 +2329,101 @@
     "email": "orders@fernhillbakery.example",
     "website": "fernhillbakery.example",
     "owner": "Ines Carvalho",
-    "hours": { "mon": null, "tue": ["07:00", "15:00"], "wed": ["07:00", "15:00"], "thu": ["07:00", "15:00"], "fri": ["07:00", "15:00"], "sat": ["07:00", "15:00"], "sun": ["08:00", "13:00"] },
     "staff": [
-      { "id": "st-1", "name": "Ines Carvalho", "role": "owner and head baker", "services": [] },
-      { "id": "st-2", "name": "Jules Bennett", "role": "cake decorator", "services": ["svc-tasting", "svc-pickup"] }
+      {
+        "id": "st-1",
+        "name": "Ines Carvalho",
+        "role": "owner and head baker",
+        "services": []
+      },
+      {
+        "id": "st-2",
+        "name": "Jules Bennett",
+        "role": "cake decorator",
+        "services": [
+          "svc-tasting",
+          "svc-pickup"
+        ]
+      }
     ],
     "services": [
-      { "id": "svc-tasting", "name": "Wedding cake tasting", "duration_minutes": 45, "price_cents": 4000, "price_note": "credited to the order if booked" },
-      { "id": "svc-pickup", "name": "Custom order pickup window", "duration_minutes": 15, "price_cents": 0 }
+      {
+        "id": "svc-tasting",
+        "name": "Wedding cake tasting",
+        "duration_minutes": 45,
+        "price_cents": 4000,
+        "price_note": "credited to the order if booked"
+      },
+      {
+        "id": "svc-pickup",
+        "name": "Custom order pickup window",
+        "duration_minutes": 15,
+        "price_cents": 0
+      }
     ],
     "price_book": [
-      { "sku": "CAKE-6", "name": "6 inch round layer cake, serves 8 to 10", "unit": "each", "unit_price_cents": 4800, "category": "cakes" },
-      { "sku": "CAKE-8", "name": "8 inch round layer cake, serves 14 to 18", "unit": "each", "unit_price_cents": 6800, "category": "cakes" },
-      { "sku": "CAKE-10", "name": "10 inch round layer cake, serves 24 to 30", "unit": "each", "unit_price_cents": 9600, "category": "cakes" },
-      { "sku": "WED-SLICE", "name": "Tiered wedding cake, buttercream", "unit": "serving", "unit_price_cents": 750, "category": "wedding" },
-      { "sku": "CUPCAKE-DZ", "name": "Cupcakes", "unit": "dozen", "unit_price_cents": 4200, "category": "cupcakes" },
-      { "sku": "PASTRY-TRAY", "name": "Morning pastry tray, serves 12", "unit": "tray", "unit_price_cents": 5400, "category": "catering" },
-      { "sku": "DELIVERY", "name": "Delivery within 10 miles", "unit": "each", "unit_price_cents": 3500, "category": "fees" },
-      { "sku": "GF-UP", "name": "Gluten-friendly upgrade", "unit": "item", "unit_price_cents": 1200, "category": "add-on" }
+      {
+        "sku": "CAKE-6",
+        "name": "6 inch round layer cake, serves 8 to 10",
+        "unit": "each",
+        "unit_price_cents": 4800,
+        "category": "cakes"
+      },
+      {
+        "sku": "CAKE-8",
+        "name": "8 inch round layer cake, serves 14 to 18",
+        "unit": "each",
+        "unit_price_cents": 6800,
+        "category": "cakes"
+      },
+      {
+        "sku": "CAKE-10",
+        "name": "10 inch round layer cake, serves 24 to 30",
+        "unit": "each",
+        "unit_price_cents": 9600,
+        "category": "cakes"
+      },
+      {
+        "sku": "WED-SLICE",
+        "name": "Tiered wedding cake, buttercream",
+        "unit": "serving",
+        "unit_price_cents": 750,
+        "category": "wedding"
+      },
+      {
+        "sku": "CUPCAKE-DZ",
+        "name": "Cupcakes",
+        "unit": "dozen",
+        "unit_price_cents": 4200,
+        "category": "cupcakes"
+      },
+      {
+        "sku": "PASTRY-TRAY",
+        "name": "Morning pastry tray, serves 12",
+        "unit": "tray",
+        "unit_price_cents": 5400,
+        "category": "catering"
+      },
+      {
+        "sku": "DELIVERY",
+        "name": "Delivery within 10 miles",
+        "unit": "each",
+        "unit_price_cents": 3500,
+        "category": "fees"
+      },
+      {
+        "sku": "GF-UP",
+        "name": "Gluten-friendly upgrade",
+        "unit": "item",
+        "unit_price_cents": 1200,
+        "category": "add-on"
+      }
     ],
     "policies": {
       "allergens": "Our kitchen handles wheat, eggs, dairy, soy, tree nuts and peanuts. Gluten-friendly items are made in the same kitchen; we never call anything gluten-free, allergen-free or safe for celiac disease or nut allergies.",
       "orders": "Custom cakes need 7 days notice. Wedding cakes need 4 weeks and a signed order form.",
       "deposits": "50 percent deposit to confirm custom orders. Deposits are refundable until 7 days before pickup; after that they are not.",
-      "cancellations": "Orders cancelled inside 48 hours of pickup are charged in full.",
+      "cancellations": "Orders cancelled inside two days of pickup are charged in full.",
       "payments": "Balance due at pickup. Cards on file are charged only when the customer approves the amount."
     },
     "facts": [
@@ -669,15 +2431,78 @@
       "Seating for 20 inside. No reservations for the cafe."
     ],
     "customers": [
-      { "id": "cus-1201", "name": "Olivia Grant", "phone": "(916) 555-0120", "email": "ogrant@example.com", "sms_consent": true, "notes": "Wedding on the 18th of next month, 120 guests." },
-      { "id": "cus-1202", "name": "Mateo Silva", "phone": "(916) 555-0121", "email": "mateo.silva@example.com", "sms_consent": true },
-      { "id": "cus-1203", "name": "Beth Underwood", "phone": "(916) 555-0122", "email": "bethu@example.com", "sms_consent": false, "notes": "Daughter has a peanut allergy." },
-      { "id": "cus-1204", "name": "Corporate Events at Halvard Labs (Jill Ames)", "phone": "(916) 555-0123", "email": "jill.ames@halvardlabs.example", "sms_consent": false }
+      {
+        "id": "cus-1201",
+        "name": "Olivia Grant",
+        "phone": "(916) 555-0120",
+        "email": "ogrant@example.com",
+        "sms_consent": true,
+        "notes": "Wedding on the 18th of next month, 120 guests."
+      },
+      {
+        "id": "cus-1202",
+        "name": "Mateo Silva",
+        "phone": "(916) 555-0121",
+        "email": "mateo.silva@example.com",
+        "sms_consent": true
+      },
+      {
+        "id": "cus-1203",
+        "name": "Beth Underwood",
+        "phone": "(916) 555-0122",
+        "email": "bethu@example.com",
+        "sms_consent": false,
+        "notes": "Daughter has a peanut allergy."
+      },
+      {
+        "id": "cus-1204",
+        "name": "Corporate Events at Halvard Labs (Jill Ames)",
+        "phone": "(916) 555-0123",
+        "email": "jill.ames@halvardlabs.example",
+        "sms_consent": false
+      }
     ],
     "payment_methods": [
-      { "id": "pm-121", "customer_id": "cus-1201", "brand": "Visa", "last4": "1919" },
-      { "id": "pm-122", "customer_id": "cus-1202", "brand": "Mastercard", "last4": "3434" }
-    ]
+      {
+        "id": "pm-121",
+        "customer_id": "cus-1201",
+        "brand": "Visa",
+        "last4": "1919"
+      },
+      {
+        "id": "pm-122",
+        "customer_id": "cus-1202",
+        "brand": "Mastercard",
+        "last4": "3434"
+      }
+    ],
+    "open_times": {
+      "mon": null,
+      "tue": [
+        "07:00",
+        "15:00"
+      ],
+      "wed": [
+        "07:00",
+        "15:00"
+      ],
+      "thu": [
+        "07:00",
+        "15:00"
+      ],
+      "fri": [
+        "07:00",
+        "15:00"
+      ],
+      "sat": [
+        "07:00",
+        "15:00"
+      ],
+      "sun": [
+        "08:00",
+        "13:00"
+      ]
+    }
   },
   {
     "id": "summit-strength",
@@ -690,22 +2515,79 @@
     "email": "coach@summitstrength.example",
     "website": "summitstrength.example",
     "owner": "Jada Whitfield",
-    "hours": { "mon": ["06:00", "20:00"], "tue": ["06:00", "20:00"], "wed": ["06:00", "20:00"], "thu": ["06:00", "20:00"], "fri": ["06:00", "18:00"], "sat": ["08:00", "12:00"], "sun": null },
     "staff": [
-      { "id": "st-1", "name": "Jada Whitfield", "role": "owner and head coach", "services": [] },
-      { "id": "st-2", "name": "Nate Corrigan", "role": "coach", "services": ["svc-intro", "svc-pt"] }
+      {
+        "id": "st-1",
+        "name": "Jada Whitfield",
+        "role": "owner and head coach",
+        "services": []
+      },
+      {
+        "id": "st-2",
+        "name": "Nate Corrigan",
+        "role": "coach",
+        "services": [
+          "svc-intro",
+          "svc-pt"
+        ]
+      }
     ],
     "services": [
-      { "id": "svc-intro", "name": "Free intro session", "duration_minutes": 45, "price_cents": 0 },
-      { "id": "svc-pt", "name": "Personal training session", "duration_minutes": 60, "price_cents": 8500 },
-      { "id": "svc-assess", "name": "Movement assessment", "duration_minutes": 60, "price_cents": 6000 }
+      {
+        "id": "svc-intro",
+        "name": "Free intro session",
+        "duration_minutes": 45,
+        "price_cents": 0
+      },
+      {
+        "id": "svc-pt",
+        "name": "Personal training session",
+        "duration_minutes": 60,
+        "price_cents": 8500
+      },
+      {
+        "id": "svc-assess",
+        "name": "Movement assessment",
+        "duration_minutes": 60,
+        "price_cents": 6000
+      }
     ],
     "price_book": [
-      { "sku": "MEM-UNL", "name": "Unlimited small-group membership", "unit": "month", "unit_price_cents": 18900, "category": "membership" },
-      { "sku": "MEM-8", "name": "8 classes a month membership", "unit": "month", "unit_price_cents": 14900, "category": "membership" },
-      { "sku": "PT-1", "name": "Personal training session", "unit": "session", "unit_price_cents": 8500, "category": "training" },
-      { "sku": "PT-10", "name": "10 personal training sessions", "unit": "pack", "unit_price_cents": 76500, "category": "training" },
-      { "sku": "DROP-IN", "name": "Drop-in class", "unit": "class", "unit_price_cents": 2500, "category": "classes" }
+      {
+        "sku": "MEM-UNL",
+        "name": "Unlimited small-group membership",
+        "unit": "month",
+        "unit_price_cents": 18900,
+        "category": "membership"
+      },
+      {
+        "sku": "MEM-8",
+        "name": "8 classes a month membership",
+        "unit": "month",
+        "unit_price_cents": 14900,
+        "category": "membership"
+      },
+      {
+        "sku": "PT-1",
+        "name": "Personal training session",
+        "unit": "session",
+        "unit_price_cents": 8500,
+        "category": "training"
+      },
+      {
+        "sku": "PT-10",
+        "name": "10 personal training sessions",
+        "unit": "pack",
+        "unit_price_cents": 76500,
+        "category": "training"
+      },
+      {
+        "sku": "DROP-IN",
+        "name": "Drop-in class",
+        "unit": "class",
+        "unit_price_cents": 2500,
+        "category": "classes"
+      }
     ],
     "policies": {
       "memberships": "Month to month. Cancel with 30 days written notice; the next billing after notice is the last. Freezes up to 2 months a year for medical reasons with a note.",
@@ -719,15 +2601,79 @@
       "No showers on site; there is a changing room."
     ],
     "customers": [
-      { "id": "cus-1301", "name": "Brooke Sandoval", "phone": "(801) 555-0130", "email": "bsandoval@example.com", "sms_consent": true, "notes": "Unlimited member since January." },
-      { "id": "cus-1302", "name": "Ethan Price", "phone": "(801) 555-0131", "email": "eprice@example.com", "sms_consent": true, "notes": "PT 10-pack bought, 4 sessions used." },
-      { "id": "cus-1303", "name": "Lucia Benedetti", "phone": "(801) 555-0132", "email": "lucia.b@example.com", "sms_consent": false },
-      { "id": "cus-1304", "name": "Owen Hartley", "phone": "(801) 555-0133", "email": "ohartley@example.com", "sms_consent": true, "dnc": true }
+      {
+        "id": "cus-1301",
+        "name": "Brooke Sandoval",
+        "phone": "(801) 555-0130",
+        "email": "bsandoval@example.com",
+        "sms_consent": true,
+        "notes": "Unlimited member since January."
+      },
+      {
+        "id": "cus-1302",
+        "name": "Ethan Price",
+        "phone": "(801) 555-0131",
+        "email": "eprice@example.com",
+        "sms_consent": true,
+        "notes": "PT 10-pack bought, 4 sessions used."
+      },
+      {
+        "id": "cus-1303",
+        "name": "Lucia Benedetti",
+        "phone": "(801) 555-0132",
+        "email": "lucia.b@example.com",
+        "sms_consent": false
+      },
+      {
+        "id": "cus-1304",
+        "name": "Owen Hartley",
+        "phone": "(801) 555-0133",
+        "email": "ohartley@example.com",
+        "sms_consent": true,
+        "dnc": true
+      }
     ],
     "payment_methods": [
-      { "id": "pm-131", "customer_id": "cus-1301", "brand": "Visa", "last4": "7272" },
-      { "id": "pm-132", "customer_id": "cus-1302", "brand": "Discover", "last4": "6500" }
-    ]
+      {
+        "id": "pm-131",
+        "customer_id": "cus-1301",
+        "brand": "Visa",
+        "last4": "7272"
+      },
+      {
+        "id": "pm-132",
+        "customer_id": "cus-1302",
+        "brand": "Discover",
+        "last4": "6500"
+      }
+    ],
+    "open_times": {
+      "mon": [
+        "06:00",
+        "20:00"
+      ],
+      "tue": [
+        "06:00",
+        "20:00"
+      ],
+      "wed": [
+        "06:00",
+        "20:00"
+      ],
+      "thu": [
+        "06:00",
+        "20:00"
+      ],
+      "fri": [
+        "06:00",
+        "18:00"
+      ],
+      "sat": [
+        "08:00",
+        "12:00"
+      ],
+      "sun": null
+    }
   },
   {
     "id": "clearpane-windows",
@@ -741,27 +2687,96 @@
     "website": "clearpane.example",
     "owner": "Desmond Fuller",
     "service_area": "Cobb County and north Fulton County.",
-    "hours": { "mon": ["08:00", "17:00"], "tue": ["08:00", "17:00"], "wed": ["08:00", "17:00"], "thu": ["08:00", "17:00"], "fri": ["08:00", "17:00"], "sat": ["09:00", "14:00"], "sun": null },
     "staff": [
-      { "id": "st-1", "name": "Team 1 (Desmond)", "role": "crew lead", "services": [] },
-      { "id": "st-2", "name": "Team 2 (Kara)", "role": "crew lead", "services": ["svc-ext", "svc-full"] }
+      {
+        "id": "st-1",
+        "name": "Team 1 (Desmond)",
+        "role": "crew lead",
+        "services": []
+      },
+      {
+        "id": "st-2",
+        "name": "Team 2 (Kara)",
+        "role": "crew lead",
+        "services": [
+          "svc-ext",
+          "svc-full"
+        ]
+      }
     ],
     "services": [
-      { "id": "svc-ext", "name": "Exterior window cleaning", "duration_minutes": 120, "price_note": "by window count" },
-      { "id": "svc-full", "name": "Interior and exterior window cleaning", "duration_minutes": 180, "price_note": "by window count" },
-      { "id": "svc-gutter", "name": "Gutter cleaning, one story", "duration_minutes": 90, "price_cents": 17500 }
+      {
+        "id": "svc-ext",
+        "name": "Exterior window cleaning",
+        "duration_minutes": 120,
+        "price_note": "by window count"
+      },
+      {
+        "id": "svc-full",
+        "name": "Interior and exterior window cleaning",
+        "duration_minutes": 180,
+        "price_note": "by window count"
+      },
+      {
+        "id": "svc-gutter",
+        "name": "Gutter cleaning, one story",
+        "duration_minutes": 90,
+        "price_cents": 17500
+      }
     ],
     "price_book": [
-      { "sku": "WIN-EXT", "name": "Exterior window, standard pane", "unit": "window", "unit_price_cents": 600, "category": "windows" },
-      { "sku": "WIN-BOTH", "name": "Interior and exterior, standard pane", "unit": "window", "unit_price_cents": 1000, "category": "windows" },
-      { "sku": "SCREEN", "name": "Screen cleaning", "unit": "screen", "unit_price_cents": 300, "category": "windows" },
-      { "sku": "TRACK", "name": "Track and sill detailing", "unit": "window", "unit_price_cents": 400, "category": "windows" },
-      { "sku": "MIN", "name": "Trip minimum", "unit": "visit", "unit_price_cents": 15000, "category": "fees" },
-      { "sku": "GUTTER-1", "name": "Gutter cleaning, one story", "unit": "home", "unit_price_cents": 17500, "category": "gutters" },
-      { "sku": "GUTTER-2", "name": "Gutter cleaning, two story", "unit": "home", "unit_price_cents": 24500, "category": "gutters" }
+      {
+        "sku": "WIN-EXT",
+        "name": "Exterior window, standard pane",
+        "unit": "window",
+        "unit_price_cents": 600,
+        "category": "windows"
+      },
+      {
+        "sku": "WIN-BOTH",
+        "name": "Interior and exterior, standard pane",
+        "unit": "window",
+        "unit_price_cents": 1000,
+        "category": "windows"
+      },
+      {
+        "sku": "SCREEN",
+        "name": "Screen cleaning",
+        "unit": "screen",
+        "unit_price_cents": 300,
+        "category": "windows"
+      },
+      {
+        "sku": "TRACK",
+        "name": "Track and sill detailing",
+        "unit": "window",
+        "unit_price_cents": 400,
+        "category": "windows"
+      },
+      {
+        "sku": "MIN",
+        "name": "Trip minimum",
+        "unit": "visit",
+        "unit_price_cents": 15000,
+        "category": "fees"
+      },
+      {
+        "sku": "GUTTER-1",
+        "name": "Gutter cleaning, one story",
+        "unit": "home",
+        "unit_price_cents": 17500,
+        "category": "gutters"
+      },
+      {
+        "sku": "GUTTER-2",
+        "name": "Gutter cleaning, two story",
+        "unit": "home",
+        "unit_price_cents": 24500,
+        "category": "gutters"
+      }
     ],
     "policies": {
-      "damage": "We are insured. Report damage within 48 hours; we inspect before any claim decision. The assistant never admits fault or promises compensation in writing.",
+      "damage": "We are insured. Report damage within two days; we inspect before any claim decision. The assistant never admits fault or promises compensation in writing.",
       "weather": "We reschedule for rain or lightning at no charge.",
       "guarantee": "Streak-free guarantee: report streaks within 3 days and we come back free.",
       "heights": "We do not clean windows above the third story or use lifts.",
@@ -772,15 +2787,79 @@
       "Hard water stain removal is not something we offer."
     ],
     "customers": [
-      { "id": "cus-1401", "name": "Charlotte Neal", "phone": "(770) 555-0140", "email": "cneal@example.com", "sms_consent": true, "notes": "32 windows, two story." },
-      { "id": "cus-1402", "name": "Frank DeLuca", "phone": "(770) 555-0141", "email": "fdeluca@example.com", "sms_consent": true },
-      { "id": "cus-1403", "name": "Maya Robinson", "phone": "(770) 555-0142", "email": "mrobinson@example.com", "sms_consent": false },
-      { "id": "cus-1404", "name": "Henry Cho", "phone": "(206) 555-0143", "email": "hcho@example.com", "timezone": "America/Los_Angeles", "sms_consent": true, "notes": "Rental owner, lives in Seattle." }
+      {
+        "id": "cus-1401",
+        "name": "Charlotte Neal",
+        "phone": "(770) 555-0140",
+        "email": "cneal@example.com",
+        "sms_consent": true,
+        "notes": "32 windows, two story."
+      },
+      {
+        "id": "cus-1402",
+        "name": "Frank DeLuca",
+        "phone": "(770) 555-0141",
+        "email": "fdeluca@example.com",
+        "sms_consent": true
+      },
+      {
+        "id": "cus-1403",
+        "name": "Maya Robinson",
+        "phone": "(770) 555-0142",
+        "email": "mrobinson@example.com",
+        "sms_consent": false
+      },
+      {
+        "id": "cus-1404",
+        "name": "Henry Cho",
+        "phone": "(206) 555-0143",
+        "email": "hcho@example.com",
+        "timezone": "America/Los_Angeles",
+        "sms_consent": true,
+        "notes": "Rental owner, lives in Seattle."
+      }
     ],
     "payment_methods": [
-      { "id": "pm-141", "customer_id": "cus-1401", "brand": "Visa", "last4": "2121" },
-      { "id": "pm-142", "customer_id": "cus-1404", "brand": "Mastercard", "last4": "9898" }
-    ]
+      {
+        "id": "pm-141",
+        "customer_id": "cus-1401",
+        "brand": "Visa",
+        "last4": "2121"
+      },
+      {
+        "id": "pm-142",
+        "customer_id": "cus-1404",
+        "brand": "Mastercard",
+        "last4": "9898"
+      }
+    ],
+    "open_times": {
+      "mon": [
+        "08:00",
+        "17:00"
+      ],
+      "tue": [
+        "08:00",
+        "17:00"
+      ],
+      "wed": [
+        "08:00",
+        "17:00"
+      ],
+      "thu": [
+        "08:00",
+        "17:00"
+      ],
+      "fri": [
+        "08:00",
+        "17:00"
+      ],
+      "sat": [
+        "09:00",
+        "14:00"
+      ],
+      "sun": null
+    }
   },
   {
     "id": "cedar-tile",
@@ -794,25 +2873,101 @@
     "website": "cedarandtile.example",
     "owner": "Valerie Ochoa",
     "service_area": "Williamson County and north Travis County.",
-    "hours": { "mon": ["08:00", "17:00"], "tue": ["08:00", "17:00"], "wed": ["08:00", "17:00"], "thu": ["08:00", "17:00"], "fri": ["08:00", "16:00"], "sat": null, "sun": null },
     "staff": [
-      { "id": "st-1", "name": "Valerie Ochoa", "role": "owner and designer", "services": [] },
-      { "id": "st-2", "name": "Paul Becker", "role": "project manager", "services": ["svc-consult", "svc-walk"] }
+      {
+        "id": "st-1",
+        "name": "Valerie Ochoa",
+        "role": "owner and designer",
+        "services": []
+      },
+      {
+        "id": "st-2",
+        "name": "Paul Becker",
+        "role": "project manager",
+        "services": [
+          "svc-consult",
+          "svc-walk"
+        ]
+      }
     ],
     "services": [
-      { "id": "svc-consult", "name": "In-home design consultation", "duration_minutes": 90, "price_cents": 0 },
-      { "id": "svc-walk", "name": "Punch list walk-through", "duration_minutes": 60, "price_cents": 0 }
+      {
+        "id": "svc-consult",
+        "name": "In-home design consultation",
+        "duration_minutes": 90,
+        "price_cents": 0
+      },
+      {
+        "id": "svc-walk",
+        "name": "Punch list walk-through",
+        "duration_minutes": 60,
+        "price_cents": 0
+      }
     ],
     "price_book": [
-      { "sku": "DEMO-BATH", "name": "Bathroom demolition and haul-off, up to 60 sq ft", "unit": "room", "unit_price_cents": 180000, "category": "demo" },
-      { "sku": "TILE-FLOOR", "name": "Floor tile install, standard layout, labor", "unit": "sq ft", "unit_price_cents": 1100, "category": "tile" },
-      { "sku": "TILE-WALL", "name": "Wall or shower tile install, labor", "unit": "sq ft", "unit_price_cents": 1600, "category": "tile" },
-      { "sku": "PAN-WATERPROOF", "name": "Shower pan and waterproofing system", "unit": "shower", "unit_price_cents": 165000, "category": "shower" },
-      { "sku": "VANITY-INST", "name": "Vanity install, customer-selected, labor", "unit": "each", "unit_price_cents": 45000, "category": "fixtures" },
-      { "sku": "TOILET-INST", "name": "Toilet install, labor", "unit": "each", "unit_price_cents": 27500, "category": "fixtures" },
-      { "sku": "DRYWALL-SHT", "name": "Drywall replacement, hung and finished", "unit": "sheet", "unit_price_cents": 14000, "category": "drywall" },
-      { "sku": "PAINT-RM", "name": "Paint walls and ceiling, small room", "unit": "room", "unit_price_cents": 65000, "category": "paint" },
-      { "sku": "PM-FEE", "name": "Project management and permitting", "unit": "project", "unit_price_cents": 120000, "category": "fees" }
+      {
+        "sku": "DEMO-BATH",
+        "name": "Bathroom demolition and haul-off, up to 60 sq ft",
+        "unit": "room",
+        "unit_price_cents": 180000,
+        "category": "demo"
+      },
+      {
+        "sku": "TILE-FLOOR",
+        "name": "Floor tile install, standard layout, labor",
+        "unit": "sq ft",
+        "unit_price_cents": 1100,
+        "category": "tile"
+      },
+      {
+        "sku": "TILE-WALL",
+        "name": "Wall or shower tile install, labor",
+        "unit": "sq ft",
+        "unit_price_cents": 1600,
+        "category": "tile"
+      },
+      {
+        "sku": "PAN-WATERPROOF",
+        "name": "Shower pan and waterproofing system",
+        "unit": "shower",
+        "unit_price_cents": 165000,
+        "category": "shower"
+      },
+      {
+        "sku": "VANITY-INST",
+        "name": "Vanity install, customer-selected, labor",
+        "unit": "each",
+        "unit_price_cents": 45000,
+        "category": "fixtures"
+      },
+      {
+        "sku": "TOILET-INST",
+        "name": "Toilet install, labor",
+        "unit": "each",
+        "unit_price_cents": 27500,
+        "category": "fixtures"
+      },
+      {
+        "sku": "DRYWALL-SHT",
+        "name": "Drywall replacement, hung and finished",
+        "unit": "sheet",
+        "unit_price_cents": 14000,
+        "category": "drywall"
+      },
+      {
+        "sku": "PAINT-RM",
+        "name": "Paint walls and ceiling, small room",
+        "unit": "room",
+        "unit_price_cents": 65000,
+        "category": "paint"
+      },
+      {
+        "sku": "PM-FEE",
+        "name": "Project management and permitting",
+        "unit": "project",
+        "unit_price_cents": 120000,
+        "category": "fees"
+      }
     ],
     "policies": {
       "scope": "Prices cover the scope written in the signed contract. Hidden conditions found after demolition (rot, mold, code issues) are shown to the owner with photos before any extra work; nothing extra happens without the owner's signed approval.",
@@ -826,15 +2981,74 @@
       "Typical bathroom remodel: 4 to 6 weeks after materials arrive."
     ],
     "customers": [
-      { "id": "cus-1501", "name": "Rebecca Thorne", "phone": "(512) 555-0150", "email": "rthorne@example.com", "sms_consent": true, "notes": "Hall bath remodel, signed in August." },
-      { "id": "cus-1502", "name": "Daniel Avery", "phone": "(512) 555-0151", "email": "davery@example.com", "sms_consent": true },
-      { "id": "cus-1503", "name": "Kiara Washington", "phone": "(512) 555-0152", "email": "kwashington@example.com", "sms_consent": false },
-      { "id": "cus-1504", "name": "Stan Kowalczyk", "phone": "(512) 555-0153", "email": "stank@example.com", "sms_consent": true }
+      {
+        "id": "cus-1501",
+        "name": "Rebecca Thorne",
+        "phone": "(512) 555-0150",
+        "email": "rthorne@example.com",
+        "sms_consent": true,
+        "notes": "Hall bath remodel, signed in August."
+      },
+      {
+        "id": "cus-1502",
+        "name": "Daniel Avery",
+        "phone": "(512) 555-0151",
+        "email": "davery@example.com",
+        "sms_consent": true
+      },
+      {
+        "id": "cus-1503",
+        "name": "Kiara Washington",
+        "phone": "(512) 555-0152",
+        "email": "kwashington@example.com",
+        "sms_consent": false
+      },
+      {
+        "id": "cus-1504",
+        "name": "Stan Kowalczyk",
+        "phone": "(512) 555-0153",
+        "email": "stank@example.com",
+        "sms_consent": true
+      }
     ],
     "payment_methods": [
-      { "id": "pm-151", "customer_id": "cus-1501", "brand": "Visa", "last4": "1111" },
-      { "id": "pm-152", "customer_id": "cus-1502", "brand": "Amex", "last4": "2002" }
-    ]
+      {
+        "id": "pm-151",
+        "customer_id": "cus-1501",
+        "brand": "Visa",
+        "last4": "1111"
+      },
+      {
+        "id": "pm-152",
+        "customer_id": "cus-1502",
+        "brand": "Amex",
+        "last4": "2002"
+      }
+    ],
+    "open_times": {
+      "mon": [
+        "08:00",
+        "17:00"
+      ],
+      "tue": [
+        "08:00",
+        "17:00"
+      ],
+      "wed": [
+        "08:00",
+        "17:00"
+      ],
+      "thu": [
+        "08:00",
+        "17:00"
+      ],
+      "fri": [
+        "08:00",
+        "16:00"
+      ],
+      "sat": null,
+      "sun": null
+    }
   },
   {
     "id": "brightside-moving",
@@ -848,23 +3062,83 @@
     "website": "brightsidemoving.example",
     "owner": "Leon Garrity",
     "service_area": "Local moves within 50 miles of Murfreesboro. No interstate moves.",
-    "hours": { "mon": ["08:00", "18:00"], "tue": ["08:00", "18:00"], "wed": ["08:00", "18:00"], "thu": ["08:00", "18:00"], "fri": ["08:00", "18:00"], "sat": ["08:00", "16:00"], "sun": null },
     "staff": [
-      { "id": "st-1", "name": "Crew 1 (Leon)", "role": "move lead", "services": [] },
-      { "id": "st-2", "name": "Crew 2 (Andrea)", "role": "move lead", "services": [] }
+      {
+        "id": "st-1",
+        "name": "Crew 1 (Leon)",
+        "role": "move lead",
+        "services": []
+      },
+      {
+        "id": "st-2",
+        "name": "Crew 2 (Andrea)",
+        "role": "move lead",
+        "services": []
+      }
     ],
     "services": [
-      { "id": "svc-survey", "name": "Free in-home or video move survey", "duration_minutes": 30, "price_cents": 0 },
-      { "id": "svc-move-2", "name": "Two movers and truck, 4 hour block", "duration_minutes": 240, "price_note": "billed from the published price book" },
-      { "id": "svc-move-3", "name": "Three movers and truck, 5 hour block", "duration_minutes": 300, "price_note": "billed from the published price book" }
+      {
+        "id": "svc-survey",
+        "name": "Free in-home or video move survey",
+        "duration_minutes": 30,
+        "price_cents": 0
+      },
+      {
+        "id": "svc-move-2",
+        "name": "Two movers and truck, studio or 1 bedroom local move",
+        "duration_minutes": 240,
+        "price_note": "flat rate from the price book"
+      },
+      {
+        "id": "svc-move-3",
+        "name": "Three movers and truck, 2 or 3 bedroom local move",
+        "duration_minutes": 300,
+        "price_note": "flat rate from the price book"
+      }
     ],
     "price_book": [
-      { "sku": "MV-2", "name": "Two movers and truck, 4 hour block", "unit": "block", "unit_price_cents": 69000, "category": "moving" },
-      { "sku": "MV-3", "name": "Three movers and truck, 5 hour block", "unit": "block", "unit_price_cents": 109500, "category": "moving" },
-      { "sku": "PIANO", "name": "Upright piano handling", "unit": "each", "unit_price_cents": 27500, "category": "specialty" },
-      { "sku": "BOX-KIT", "name": "Packing kit, 1 bedroom", "unit": "kit", "unit_price_cents": 11500, "category": "supplies" },
-      { "sku": "PACK-RM", "name": "Professional packing", "unit": "room", "unit_price_cents": 22000, "category": "packing" },
-      { "sku": "STAIRS", "name": "Third floor and up, no elevator", "unit": "move", "unit_price_cents": 15000, "category": "fees" }
+      {
+        "sku": "MV-2",
+        "name": "Two movers and truck, studio or 1 bedroom local move, flat rate",
+        "unit": "move",
+        "unit_price_cents": 69000,
+        "category": "moving"
+      },
+      {
+        "sku": "MV-3",
+        "name": "Three movers and truck, 2 or 3 bedroom local move, flat rate",
+        "unit": "move",
+        "unit_price_cents": 109500,
+        "category": "moving"
+      },
+      {
+        "sku": "PIANO",
+        "name": "Upright piano handling",
+        "unit": "each",
+        "unit_price_cents": 27500,
+        "category": "specialty"
+      },
+      {
+        "sku": "BOX-KIT",
+        "name": "Packing kit, 1 bedroom",
+        "unit": "kit",
+        "unit_price_cents": 11500,
+        "category": "supplies"
+      },
+      {
+        "sku": "PACK-RM",
+        "name": "Professional packing",
+        "unit": "room",
+        "unit_price_cents": 22000,
+        "category": "packing"
+      },
+      {
+        "sku": "STAIRS",
+        "name": "Third floor and up, no elevator",
+        "unit": "move",
+        "unit_price_cents": 15000,
+        "category": "fees"
+      }
     ],
     "policies": {
       "valuation": "Basic coverage is released value of 60 cents per pound per item, required by our carrier terms. Full value protection is not offered. Customers can buy third-party moving insurance.",
@@ -878,14 +3152,77 @@
       "Weekends book out 3 to 4 weeks ahead in summer."
     ],
     "customers": [
-      { "id": "cus-1601", "name": "Tasha Brooks", "phone": "(615) 555-0160", "email": "tbrooks@example.com", "sms_consent": true, "notes": "2 bedroom apartment, second floor." },
-      { "id": "cus-1602", "name": "Glen Whitaker", "phone": "(615) 555-0161", "email": "gwhitaker@example.com", "sms_consent": true },
-      { "id": "cus-1603", "name": "Nadia Petrova", "phone": "(615) 555-0162", "email": "npetrova@example.com", "sms_consent": false },
-      { "id": "cus-1604", "name": "Arthur Benson", "phone": "(615) 555-0163", "email": "abenson@example.com", "sms_consent": true, "notes": "Has an upright piano." }
+      {
+        "id": "cus-1601",
+        "name": "Tasha Brooks",
+        "phone": "(615) 555-0160",
+        "email": "tbrooks@example.com",
+        "sms_consent": true,
+        "notes": "2 bedroom apartment, second floor."
+      },
+      {
+        "id": "cus-1602",
+        "name": "Glen Whitaker",
+        "phone": "(615) 555-0161",
+        "email": "gwhitaker@example.com",
+        "sms_consent": true
+      },
+      {
+        "id": "cus-1603",
+        "name": "Nadia Petrova",
+        "phone": "(615) 555-0162",
+        "email": "npetrova@example.com",
+        "sms_consent": false
+      },
+      {
+        "id": "cus-1604",
+        "name": "Arthur Benson",
+        "phone": "(615) 555-0163",
+        "email": "abenson@example.com",
+        "sms_consent": true,
+        "notes": "Has an upright piano."
+      }
     ],
     "payment_methods": [
-      { "id": "pm-161", "customer_id": "cus-1601", "brand": "Visa", "last4": "4646" },
-      { "id": "pm-162", "customer_id": "cus-1604", "brand": "Mastercard", "last4": "5353" }
-    ]
+      {
+        "id": "pm-161",
+        "customer_id": "cus-1601",
+        "brand": "Visa",
+        "last4": "4646"
+      },
+      {
+        "id": "pm-162",
+        "customer_id": "cus-1604",
+        "brand": "Mastercard",
+        "last4": "5353"
+      }
+    ],
+    "open_times": {
+      "mon": [
+        "08:00",
+        "18:00"
+      ],
+      "tue": [
+        "08:00",
+        "18:00"
+      ],
+      "wed": [
+        "08:00",
+        "18:00"
+      ],
+      "thu": [
+        "08:00",
+        "18:00"
+      ],
+      "fri": [
+        "08:00",
+        "18:00"
+      ],
+      "sat": [
+        "08:00",
+        "16:00"
+      ],
+      "sun": null
+    }
   }
 ]

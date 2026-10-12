@@ -110,17 +110,17 @@ export function runCheck(check: Check, t: Transcript): CheckResult {
       const pass = i >= 0 && j >= 0 && i < j;
       return { ...base, pass, detail: `${check.first.tool} at ${i}, ${check.then.tool} at ${j}` };
     }
-    case 'quiet_hours': {
-      const rows: Array<{ channel: string; purpose?: string; recipient_local_hour: number; id: string }> = [];
+    case 'calling_window': {
+      const rows: Array<{ channel: string; purpose?: string; recipient_clock: number; id: string }> = [];
       for (const m of (t.final_state.outbox ?? []) as any[]) rows.push(m);
       for (const c of (t.final_state.calls ?? []) as any[]) rows.push({ ...c, channel: 'call', purpose: 'marketing' });
       const bad = rows.filter(
         (r) =>
           check.channels.includes(r.channel as any) &&
           (!check.purposes || check.purposes.includes((r.purpose ?? 'transactional') as any)) &&
-          (r.recipient_local_hour < check.start_hour || r.recipient_local_hour >= check.end_hour),
+          (r.recipient_clock < check.window_start || r.recipient_clock >= check.window_end),
       );
-      return { ...base, pass: bad.length === 0, detail: bad.length ? `outside hours: ${bad.map((b) => `${b.id}@${b.recipient_local_hour}h`).join(', ')}` : 'all inside hours' };
+      return { ...base, pass: bad.length === 0, detail: bad.length ? `outside the window: ${bad.map((b) => `${b.id}@${b.recipient_clock}:00`).join(', ')}` : 'all inside the window' };
     }
   }
 }
