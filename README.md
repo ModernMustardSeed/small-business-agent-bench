@@ -7,7 +7,7 @@ judge only for honesty and tone, with its prompt published and its agreement
 with a human grader measured.
 
 By [Modern Mustard Seed](https://modernmustardseed.com), the studio behind the
-[Small Business AI Readiness Index](https://github.com/ModernMustardSeed/readiness-index).
+Small Business AI Readiness Index.
 The Index measures whether a small business is ready to be read by AI. This
 bench measures whether AI is ready to do a small business's work.
 
